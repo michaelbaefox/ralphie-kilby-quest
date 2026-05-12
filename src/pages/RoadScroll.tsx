@@ -390,7 +390,7 @@ export const RoadScroll = () => {
         >
           <img
             className="roadScrollCarSprite roadScrollPixel"
-            src="/prius.svg"
+            src={`${import.meta.env.BASE_URL}prius.svg`}
             alt="Your Prius on the road"
             width={112}
             height={49}
