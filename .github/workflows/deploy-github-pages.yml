@@ -1,0 +1,86 @@
+# Settings → Pages → Source: GitHub Actions
+# Project site: https://<owner>.github.io/<repo>/
+name: Deploy GitHub Pages
+
+on:
+  push:
+    branches: [main, master]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Compute Vite base path
+        id: base
+        shell: bash
+        run: |
+          NAME="${{ github.event.repository.name }}"
+          OWNER="${{ github.repository_owner }}"
+          OWNER_LC=$(echo "$OWNER" | tr '[:upper:]' '[:lower:]')
+          if [ "$NAME" = "${OWNER_LC}.github.io" ]; then
+            echo "vite_base=/" >> "$GITHUB_OUTPUT"
+            echo "Using root base for user/org GitHub Pages site."
+          else
+            echo "vite_base=/${NAME}/" >> "$GITHUB_OUTPUT"
+            echo "Using project base: /${NAME}/"
+          fi
+
+      - name: Expected public URL
+        run: |
+          BASE="${{ steps.base.outputs.vite_base }}"
+          OWNER="${{ github.repository_owner }}"
+          if [ "$BASE" = "/" ]; then
+            echo "Open after deploy: https://${OWNER}.github.io/"
+          else
+            echo "Open after deploy: https://${OWNER}.github.io${BASE}"
+          fi
+
+      - run: npm ci
+
+      - name: Build
+        run: npm run build
+        env:
+          VITE_BASE: ${{ steps.base.outputs.vite_base }}
+
+      # GitHub Pages has no SPA rewrites; 404.html mirrors index.html for refresh on /road etc.
+      - name: SPA fallback for GitHub Pages
+        run: cp dist/index.html dist/404.html
+
+      - name: Verify site root files
+        run: |
+          test -f dist/index.html
+          test -f dist/404.html
+          test -f dist/.nojekyll
+          ls -la dist/index.html dist/404.html dist/.nojekyll
+
+      # upload-pages-artifact tars the directory, so `.nojekyll` is included automatically.
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

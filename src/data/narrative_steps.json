@@ -1,0 +1,58 @@
+[
+  {
+    "id": "start",
+    "title": "Quest begins: Lansing",
+    "body": "Gas, snacks, charger. I-94 W toward Chicago, then I-80 W — main west line.",
+    "minProgress": 0,
+    "stateHint": "MI"
+  },
+  {
+    "id": "indiana_handoff",
+    "title": "Cross into Indiana",
+    "body": "I-94 toward Chicago. Watch tolls and lane closures; Illinois traffic builds ahead.",
+    "minProgress": 0.12,
+    "stateHint": "IN"
+  },
+  {
+    "id": "chicago_merge",
+    "title": "Chicago merge",
+    "body": "Traffic thickens. Follow road signs for I-80 W if they disagree with the phone.",
+    "minProgress": 0.18,
+    "stateHint": "IL"
+  },
+  {
+    "id": "iowa_roll",
+    "title": "Iowa",
+    "body": "Long straights. Top off fuel before thin rural stretches.",
+    "minProgress": 0.28,
+    "stateHint": "IA"
+  },
+  {
+    "id": "nebraska_horizon",
+    "title": "Nebraska",
+    "body": "Open miles. Crosswinds near trucks; short breaks if you're solo.",
+    "minProgress": 0.4,
+    "stateHint": "NE"
+  },
+  {
+    "id": "wyoming_wind",
+    "title": "Wyoming",
+    "body": "Elevation and gusts. Both hands in wind; pull off if it's bad.",
+    "minProgress": 0.55,
+    "stateHint": "WY"
+  },
+  {
+    "id": "salt_lake_home",
+    "title": "Utah approach",
+    "body": "I-80 into the Wasatch Front. Bluffdale sits south of SLC. Kilby Block Party is in Salt Lake — lock parking or transit before you roll in.",
+    "minProgress": 0.78,
+    "stateHint": "UT"
+  },
+  {
+    "id": "arrival_bluffdale",
+    "title": "Bluffdale",
+    "body": "Check in before Kilby (May 15–17). Sleep, water, then festival.",
+    "minProgress": 0.95,
+    "stateHint": "UT"
+  }
+]

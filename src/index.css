@@ -1,0 +1,2320 @@
+/*
+ * CMYK dark theme (sRGB approximations; print inks noted for reference).
+ * K = near-black surfaces | C = cyan accent | M = magenta danger | Y = yellow HUD gold
+ */
+:root {
+  color-scheme: dark;
+  /* K — black ink (~95% K): app canvas */
+  --bg: #050508;
+  /* K — panels */
+  --panel: #0c0c10;
+  --panel2: #16161d;
+  /* C — highlight bevel (~70% C + K): inset shine on panels */
+  --panel-highlight: #2a6d7a;
+  /* Y — yellow ink (~100% Y + trace K): headings, HUD */
+  --gold: #ffe94a;
+  --gold-dim: #b89f00;
+  /* Paper white */
+  --text: #f5f5f4;
+  /* Neutral muted (not blue-gray) */
+  --muted: #a8a8b0;
+  /* C — cyan ink: links, primary actions */
+  --accent: #2ad4e8;
+  --link: var(--accent);
+  /* M — magenta ink: errors, danger */
+  --danger: #ff4d9a;
+  --danger-fg: #ffd6ea;
+  --danger-bg: color-mix(in srgb, var(--danger) 22%, var(--panel));
+  --danger-border: color-mix(in srgb, var(--danger) 55%, #0a0a0a);
+  /* Borders: slight C tint on K */
+  --border: #3d4a52;
+  --shadow: rgba(0, 0, 0, 0.65);
+  --focus-ring: var(--gold);
+  /* Primary / danger buttons (replaces ad hoc hex) */
+  --btn-primary-bg: color-mix(in srgb, var(--accent) 38%, var(--panel2));
+  --btn-danger-bg: color-mix(in srgb, var(--danger) 28%, var(--panel));
+  --btn-danger-fg: var(--danger-fg);
+  /* Road stage (static asphalt band; biome road color still from theme JSON) */
+  --road-shoulder: #2a2a2e;
+  --road-asphalt: #0e0e12;
+  --road-stripe: #e8e8ec;
+  /* Map POI pins — hues shifted toward C / M / Y */
+  --pin-gas: #3de0b8;
+  --pin-food: #ffaa55;
+  --pin-rest: #52d4f0;
+  --pin-supplies: #efdc4a;
+  --pin-landmark: #e070f0;
+  --pin-fun: #ff6eb4;
+  --pin-emergency: #ff5c6c;
+  /* Intro / modal scrims */
+  --intro-vignette-inner: color-mix(in srgb, var(--accent) 22%, var(--panel2));
+  --intro-vignette-mid: var(--bg);
+  --intro-vignette-outer: #000000;
+  --overlay-scrim: color-mix(in srgb, var(--bg) 78%, transparent);
+  --font-pixel: 'Press Start 2P', system-ui, sans-serif;
+  --font-body: 'VT323', system-ui, sans-serif;
+  --text-scale: 1;
+}
+
+/* High contrast: full token layer + stronger separation (WCAG-oriented). */
+[data-high-contrast='true'] {
+  --bg: #000000;
+  --panel: #000000;
+  --panel2: #0d0d0d;
+  --panel-highlight: #00c8dc;
+  --gold: #ffff00;
+  --gold-dim: #cccc00;
+  --text: #ffffff;
+  --muted: #d4d4d4;
+  --accent: #00ffff;
+  --link: var(--accent);
+  --danger: #ff66cc;
+  --danger-fg: #ffffff;
+  --danger-bg: #2a1020;
+  --danger-border: #ff99dd;
+  --border: #ffffff;
+  --shadow: rgba(0, 0, 0, 0.88);
+  --focus-ring: #ffff00;
+  --btn-primary-bg: #003d44;
+  --btn-danger-bg: #3d1028;
+  --btn-danger-fg: #ffffff;
+  --road-shoulder: #3a3a3e;
+  --road-asphalt: #000000;
+  --road-stripe: #ffffff;
+  --pin-gas: #66ffcc;
+  --pin-food: #ffcc66;
+  --pin-rest: #66eeff;
+  --pin-supplies: #ffff88;
+  --pin-landmark: #ff99ff;
+  --pin-fun: #ff99cc;
+  --pin-emergency: #ff8888;
+  --intro-vignette-inner: #003838;
+  --intro-vignette-mid: #000000;
+  --intro-vignette-outer: #000000;
+  --overlay-scrim: color-mix(in srgb, var(--bg) 88%, transparent);
+}
+
+[data-high-contrast='true'] .pixelPanel,
+[data-high-contrast='true'] .introCard {
+  border-width: 4px;
+}
+
+[data-high-contrast='true'] .navTile {
+  border-width: 4px;
+}
+
+[data-high-contrast='true'] :is(button, a, input, select, textarea):focus-visible {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 2px;
+}
+
+[data-large-text='true'] {
+  --text-scale: 1.15;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: calc(22px * var(--text-scale));
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.35;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: var(--link);
+}
+
+.bootScreen {
+  min-height: 100%;
+  display: grid;
+  place-items: center;
+  font-family: var(--font-pixel);
+  font-size: 12px;
+  color: var(--gold);
+}
+
+.appShell {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 12px 14px calc(96px + env(safe-area-inset-bottom));
+}
+
+.topBar {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.topBarRight {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.topBarMenuButton {
+  appearance: none;
+  width: 44px;
+  height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--border);
+  background: var(--panel);
+  color: var(--gold);
+  border-radius: 4px;
+  cursor: pointer;
+  box-shadow: 0 3px 0 var(--shadow);
+  transition: transform 80ms ease, border-color 120ms ease, background 120ms ease;
+}
+
+.topBarMenuButton:hover {
+  background: var(--panel2);
+}
+
+.topBarMenuButton:active {
+  transform: translateY(2px);
+  box-shadow: 0 1px 0 var(--shadow);
+}
+
+.topBarMenuButton[aria-expanded='true'] {
+  border-color: var(--gold);
+  background: var(--panel2);
+}
+
+.topBarMenuButton:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+}
+
+.topBarMenu {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  z-index: 90;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 168px;
+  padding: 10px;
+}
+
+.topBarMenuLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border: 2px solid var(--border);
+  background: var(--panel);
+  color: var(--gold);
+  font-family: var(--font-pixel);
+  font-size: 9px;
+  letter-spacing: 0.5px;
+  text-decoration: none;
+  border-radius: 4px;
+  min-height: 44px;
+  transition: border-color 120ms ease, background 120ms ease;
+}
+
+.topBarMenuLink:hover {
+  background: var(--panel2);
+}
+
+.topBarMenuLink:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+}
+
+.topBarMenuLink.is-active {
+  border-color: var(--gold);
+  background: var(--panel2);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .topBarMenuButton,
+  .topBarMenuLink {
+    transition: none;
+  }
+  .topBarMenuButton:active {
+    transform: none;
+  }
+}
+
+.topBar h1 {
+  margin: 0;
+  font-family: var(--font-pixel);
+  font-size: calc(11px * var(--text-scale));
+  color: var(--gold);
+  letter-spacing: 0.5px;
+}
+
+.pill {
+  font-family: var(--font-pixel);
+  font-size: 8px;
+  padding: 8px 10px;
+  border: 2px solid var(--border);
+  background: var(--panel2);
+  color: var(--gold);
+  border-radius: 4px;
+}
+
+.hudWeatherPill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: nowrap;
+  white-space: nowrap;
+  letter-spacing: 0.5px;
+}
+
+.hudPillSep {
+  opacity: 0.4;
+}
+
+.hudPillOffline {
+  opacity: 0.6;
+  font-size: 6px;
+  letter-spacing: 1px;
+}
+
+@media (max-width: 420px) {
+  .hudWeatherPill {
+    font-size: 7px;
+    gap: 4px;
+    padding: 6px 8px;
+  }
+}
+
+.pixelPanel {
+  border: 3px solid var(--gold-dim);
+  background: linear-gradient(180deg, var(--panel) 0%, var(--panel2) 100%);
+  box-shadow:
+    inset 1px 1px 0 var(--panel-highlight),
+    inset -1px -1px 0 var(--shadow),
+    0 6px 0 var(--shadow);
+  border-radius: 6px;
+  padding: 14px;
+}
+
+.pixelPanel h2 {
+  margin: 0 0 10px;
+  font-family: var(--font-pixel);
+  font-size: calc(12px * var(--text-scale));
+  color: var(--gold);
+}
+
+.navGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.navTile {
+  min-height: 88px;
+  border: 3px solid var(--border);
+  background: var(--panel);
+  color: var(--text);
+  font-family: var(--font-pixel);
+  font-size: 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  text-decoration: none;
+  box-shadow: 0 4px 0 var(--shadow);
+  transition: transform 0.08s ease;
+}
+
+.navTile:active {
+  transform: translateY(2px);
+  box-shadow: 0 2px 0 var(--shadow);
+}
+
+.navTile span.icon {
+  font-size: 26px;
+  line-height: 1;
+}
+
+.row {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.btn {
+  font-family: var(--font-pixel);
+  font-size: 9px;
+  padding: 12px 14px;
+  border-radius: 4px;
+  border: 2px solid var(--border);
+  background: var(--btn-primary-bg);
+  color: var(--gold);
+  cursor: pointer;
+  min-height: 44px;
+}
+
+.btn.secondary {
+  background: var(--panel2);
+  color: var(--text);
+}
+
+.btn.danger {
+  background: var(--btn-danger-bg);
+  color: var(--btn-danger-fg);
+}
+
+.muted {
+  color: var(--muted);
+  font-size: calc(20px * var(--text-scale));
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.listItem {
+  border: 2px solid var(--border);
+  background: rgba(0, 0, 0, 0.2);
+  padding: 12px;
+  border-radius: 4px;
+}
+
+.tag {
+  display: inline-block;
+  font-family: var(--font-pixel);
+  font-size: 7px;
+  padding: 4px 6px;
+  border: 1px solid var(--gold-dim);
+  color: var(--gold);
+  margin-right: 6px;
+  border-radius: 2px;
+}
+
+@keyframes shimmer {
+  0% {
+    opacity: 0.55;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.55;
+  }
+}
+
+@keyframes floaty {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.animHud[data-motion='on'] .hudGlow {
+  animation: shimmer 2.4s ease-in-out infinite;
+}
+
+.animHud[data-motion='on'] .floatSprite {
+  animation: floaty 2.8s ease-in-out infinite;
+}
+
+.animHud[data-motion='off'] .hudGlow,
+.animHud[data-motion='off'] .floatSprite {
+  animation: none;
+}
+
+.bottomNav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  max-width: 720px;
+  padding: 10px 14px calc(10px + env(safe-area-inset-bottom));
+  display: flex;
+  gap: 6px;
+  justify-content: center;
+  flex-wrap: wrap;
+  background: linear-gradient(180deg, rgba(6, 10, 26, 0) 0%, rgba(6, 10, 26, 0.95) 30%);
+  z-index: 80;
+}
+
+.bottomNavLink {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 4px;
+  min-width: 56px;
+  min-height: 56px;
+  padding: 6px 8px 4px;
+  border: 2px solid var(--border);
+  border-radius: 4px;
+  background: var(--panel);
+  color: var(--gold);
+  text-decoration: none;
+  transition: transform 80ms ease, border-color 120ms ease, background 120ms ease;
+}
+
+.bottomNavLink:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+}
+
+.bottomNavLink.is-active {
+  border-color: var(--gold);
+  background: var(--panel2);
+}
+
+.bottomNavLink.is-active .brutalIcon {
+  border-color: var(--gold);
+  transform: translateY(-1px);
+}
+
+.bottomNavLabel {
+  font-family: var(--font-pixel);
+  font-size: 7px;
+  letter-spacing: 0.5px;
+  color: var(--gold);
+  line-height: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bottomNavLink,
+  .bottomNavLink.is-active .brutalIcon {
+    transition: none;
+    transform: none;
+  }
+}
+
+.americanaMapWrap {
+  position: relative;
+  width: 100%;
+  border-radius: 6px;
+}
+
+/* Overworld — subtle pixel-game echo (no canvas pixelation; grain + stepped chrome) */
+.americanaMapWrap--pixelEcho .americanaMap {
+  box-shadow:
+    inset 2px 2px 0 rgba(255, 255, 255, 0.07),
+    inset -2px -2px 0 rgba(0, 0, 0, 0.45),
+    inset 1px 1px 0 var(--panel-highlight),
+    inset -1px -1px 0 var(--shadow);
+}
+
+.americanaMapWrap--pixelEcho .americanaMapGrain {
+  opacity: 0.17;
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      rgba(255, 255, 255, 0.07) 0,
+      rgba(255, 255, 255, 0.07) 1px,
+      transparent 1px,
+      transparent 3px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0.07) 0,
+      rgba(0, 0, 0, 0.07) 1px,
+      transparent 1px,
+      transparent 4px
+    ),
+    radial-gradient(ellipse at 30% 20%, rgba(255, 248, 220, 0.28), transparent 55%);
+}
+
+.americanaMapWrap--pixelEcho .americanaMapVignette {
+  box-shadow:
+    inset 0 0 140px rgba(6, 10, 26, 0.48),
+    inset 0 -52px 100px rgba(14, 22, 50, 0.36);
+}
+
+.americanaMap {
+  width: 100%;
+  min-height: min(52vh, 420px);
+  border: 2px solid var(--border);
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: inset 1px 1px 0 var(--panel-highlight), inset -1px -1px 0 var(--shadow);
+}
+
+.americanaMapVignette {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  border-radius: 6px;
+  box-shadow:
+    inset 0 0 120px rgba(8, 12, 28, 0.52),
+    inset 0 -48px 96px rgba(12, 20, 48, 0.38);
+  z-index: 3;
+}
+
+.americanaMapGrain {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  border-radius: 6px;
+  opacity: 0.11;
+  mix-blend-mode: overlay;
+  z-index: 4;
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      rgba(255, 255, 255, 0.06) 0,
+      rgba(255, 255, 255, 0.06) 1px,
+      transparent 1px,
+      transparent 3px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0.05) 0,
+      rgba(0, 0, 0, 0.05) 1px,
+      transparent 1px,
+      transparent 4px
+    ),
+    radial-gradient(ellipse at 30% 20%, rgba(255, 248, 220, 0.35), transparent 55%);
+}
+
+.mapAttribBackdrop {
+  position: absolute;
+  inset: 0;
+  z-index: 8;
+  border: none;
+  padding: 0;
+  margin: 0;
+  cursor: default;
+  background: rgba(10, 16, 38, 0.4);
+}
+
+.mapAttribDock {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  z-index: 12;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 10px;
+  pointer-events: none;
+}
+
+.mapAttribDock > * {
+  pointer-events: auto;
+}
+
+.mapAttribFab {
+  font-family: var(--font-pixel);
+  font-size: 11px;
+  width: 42px;
+  height: 42px;
+  border-radius: 6px;
+  border: 3px solid var(--gold-dim);
+  background: linear-gradient(180deg, var(--panel2), var(--panel));
+  color: var(--gold);
+  cursor: pointer;
+  box-shadow: 0 4px 0 var(--shadow);
+}
+
+.mapAttribFab:active {
+  transform: translateY(2px);
+  box-shadow: 0 2px 0 var(--shadow);
+}
+
+.mapAttribPanel {
+  max-width: min(320px, calc(100vw - 48px));
+  padding: 12px 14px !important;
+  margin: 0 !important;
+}
+
+.mapAttribPanel.pixelPanel {
+  border-width: 2px;
+}
+
+.mapAttribTitle {
+  margin: 0 0 8px;
+  font-family: var(--font-pixel);
+  font-size: 10px;
+  color: var(--gold);
+}
+
+.mapAttribBody {
+  margin: 0 0 8px !important;
+  font-size: calc(17px * var(--text-scale)) !important;
+  line-height: 1.35;
+}
+
+.mapAttribClose {
+  margin-top: 6px;
+  width: 100%;
+}
+
+.mapPoiPin {
+  display: inline-grid;
+  place-items: center;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  line-height: 0;
+  cursor: pointer;
+}
+
+.mapPoiPin:active .brutalIcon {
+  transform: translateY(2px);
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.45);
+}
+
+.mapPoiPin:focus-visible .brutalIcon {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+}
+
+.mapPoiPin-gas .brutalIcon { border-color: var(--pin-gas); color: var(--pin-gas); }
+.mapPoiPin-food .brutalIcon { border-color: var(--pin-food); color: var(--pin-food); }
+.mapPoiPin-rest .brutalIcon { border-color: var(--pin-rest); color: var(--pin-rest); }
+.mapPoiPin-supplies .brutalIcon { border-color: var(--pin-supplies); color: var(--pin-supplies); }
+.mapPoiPin-landmark .brutalIcon { border-color: var(--pin-landmark); color: var(--pin-landmark); }
+.mapPoiPin-fun .brutalIcon { border-color: var(--pin-fun); color: var(--pin-fun); }
+.mapPoiPin-emergency .brutalIcon { border-color: var(--pin-emergency); color: var(--pin-emergency); }
+
+.maplibregl-popup-content {
+  font-family: var(--font-body) !important;
+  font-size: calc(18px * var(--text-scale)) !important;
+  padding: 12px 14px !important;
+  border-radius: 6px !important;
+  border: 2px solid var(--gold-dim) !important;
+  background: linear-gradient(180deg, var(--panel), var(--panel2)) !important;
+  color: var(--text) !important;
+  box-shadow: 0 6px 0 var(--shadow) !important;
+}
+
+.mapPoiPopup strong {
+  display: block;
+  font-family: var(--font-pixel);
+  font-size: 9px;
+  color: var(--gold);
+  margin-bottom: 6px;
+}
+
+.mapPoiPopupKind {
+  display: inline-block;
+  font-family: var(--font-pixel);
+  font-size: 6px;
+  padding: 3px 5px;
+  margin-bottom: 6px;
+  border: 1px solid var(--border);
+  border-radius: 2px;
+  color: var(--muted);
+  text-transform: uppercase;
+}
+
+.mapPoiPopup p {
+  margin: 0;
+  color: var(--text);
+}
+
+.americanaMapFallback {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  text-align: center;
+  padding: 16px;
+  font-family: var(--font-body);
+  background: var(--panel2);
+}
+
+.sliderRow {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.sliderRow input[type='range'] {
+  width: 100%;
+  accent-color: var(--gold);
+}
+
+/* Road Scroll — pixel rendering + regional horizon + SVG clouds */
+.roadScrollPixel img {
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
+
+.roadScrollDither {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+  opacity: 0.035;
+  border-radius: 4px;
+  background: repeating-linear-gradient(
+    180deg,
+    transparent 0,
+    transparent 2px,
+    rgba(0, 0, 0, 0.22) 2px,
+    rgba(0, 0, 0, 0.22) 3px
+  );
+}
+
+.roadScrollClouds {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.roadScrollCloudTrack {
+  position: absolute;
+  left: -20%;
+  width: 140%;
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: nowrap;
+  gap: 0;
+  opacity: 0.72;
+}
+
+.roadScrollCloudDup {
+  display: flex;
+  flex-shrink: 0;
+  align-items: flex-start;
+  gap: 24px;
+}
+
+.roadScrollCloudTrackBack {
+  top: 6%;
+}
+
+.roadScrollCloudTrackMid {
+  top: 11%;
+  opacity: 0.62;
+}
+
+.roadScrollCloudTrackFront {
+  top: 4%;
+  opacity: 0.48;
+}
+
+.roadScrollCloudImg {
+  flex: 0 0 auto;
+  width: 72px;
+  height: auto;
+  filter: drop-shadow(0 1px 0 rgba(255, 255, 255, 0.35));
+}
+
+.roadScrollCloudImgSmall {
+  width: 56px;
+}
+
+.roadHillLayer {
+  z-index: 1;
+}
+
+.roadScrollHillTrack {
+  pointer-events: none;
+}
+
+.roadScrollHillTile {
+  image-rendering: crisp-edges;
+}
+
+.roadScrollHillCarpet {
+  image-rendering: crisp-edges;
+}
+
+/* Above weatherLightning (z-index 6) and Prius (5); biome ribbon uses z-index 10 inline. */
+.roadStopCarouselHost {
+  position: absolute;
+  left: 8px;
+  right: 8px;
+  top: 38px;
+  bottom: 84px;
+  z-index: 8;
+  pointer-events: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: stretch;
+}
+
+.roadStopCarouselHost > .roadStopCarouselToggle:only-child,
+.roadStopCarouselHost > .roadStopCarouselEmpty:only-child {
+  align-self: flex-end;
+}
+
+.roadStopCarouselToggle {
+  appearance: none;
+  background: rgba(0, 0, 0, 0.6);
+  border: 2px solid var(--gold-dim);
+  color: var(--gold);
+  border-radius: 4px;
+  font-family: var(--font-pixel);
+  letter-spacing: 0.5px;
+  font-size: 7px;
+  padding: 6px 10px;
+  cursor: pointer;
+  pointer-events: auto;
+}
+
+.roadStopCarouselToggle:hover,
+.roadStopCarouselToggle:focus-visible {
+  border-color: var(--gold);
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(212, 167, 70, 0.35);
+}
+
+.roadStopCarouselToggle--toolbar {
+  flex: 0 0 auto;
+  padding: 6px 8px;
+  font-size: 6px;
+  align-self: center;
+}
+
+.roadStopCarouselEmpty {
+  pointer-events: auto;
+  font-family: var(--font-pixel);
+  font-size: 7px;
+  padding: 8px 10px;
+  border: 2px solid var(--gold-dim);
+  border-radius: 4px;
+  background: rgba(0, 0, 0, 0.55);
+}
+
+.roadStopCarousel {
+  pointer-events: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  touch-action: pan-y;
+}
+
+.roadStopCarouselTopRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  flex-wrap: nowrap;
+  min-width: 0;
+}
+
+.roadStopCarouselTopRowNav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.roadStopCarouselChevron {
+  display: block;
+}
+
+.roadStopCarouselNavBtn {
+  appearance: none;
+  background: rgba(0, 0, 0, 0.55);
+  border: 2px solid var(--gold-dim);
+  color: var(--gold);
+  border-radius: 4px;
+  font-family: inherit;
+  cursor: pointer;
+  padding: 0;
+  min-width: 36px;
+  min-height: 36px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  touch-action: manipulation;
+}
+
+.roadStopCarouselNavBtn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.roadStopCarouselNavBtn:hover,
+.roadStopCarouselNavBtn:focus-visible {
+  border-color: var(--gold);
+  outline: none;
+}
+
+.roadStopCarouselDots {
+  flex: 1 1 auto;
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  align-items: center;
+  min-width: 0;
+}
+
+.roadStopCarouselDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  border: 1px solid rgba(212, 167, 70, 0.35);
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.roadStopCarouselDot.is-active {
+  background: rgba(212, 167, 70, 0.6);
+  border-color: rgba(212, 167, 70, 0.75);
+}
+
+.roadStopCarouselSingleHint {
+  margin: 0 0 4px;
+  font-family: var(--font-pixel);
+  font-size: 5px;
+  line-height: 1.35;
+  letter-spacing: 0.25px;
+}
+
+.roadStopCarouselCard {
+  appearance: none;
+  width: 100%;
+  text-align: left;
+  pointer-events: auto;
+  padding: 6px 8px;
+  background: rgba(0, 0, 0, 0.6);
+  border: 2px solid var(--gold-dim);
+  border-radius: 4px;
+  color: var(--gold);
+  cursor: pointer;
+  font-family: var(--font-pixel);
+  transition: border-color 120ms ease, background 120ms ease;
+}
+
+.roadStopCarouselCard:hover,
+.roadStopCarouselCard:focus-visible {
+  border-color: var(--gold);
+  outline: none;
+  background: rgba(0, 0, 0, 0.82);
+}
+
+.roadStopCarouselCard.is-active {
+  border-color: var(--gold);
+  background: rgba(0, 0, 0, 0.82);
+}
+
+.roadStopCarouselCard:focus-visible {
+  box-shadow: 0 0 0 2px rgba(212, 167, 70, 0.45);
+}
+
+.roadStopCarouselCardTop {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.roadStopCarouselEta {
+  display: flex;
+  align-items: baseline;
+  justify-content: flex-start;
+  gap: 8px;
+  margin-top: 6px;
+  font-family: var(--font-pixel);
+}
+
+.roadStopCarouselEtaLabel {
+  font-size: 6px;
+  letter-spacing: 1px;
+  opacity: 0.88;
+  color: var(--muted);
+}
+
+.roadStopCarouselEtaTime {
+  font-size: 9px;
+  letter-spacing: 0.5px;
+  color: var(--gold);
+}
+
+.roadStopCarouselDist {
+  opacity: 0.85;
+  font-size: 6px;
+}
+
+.roadStopCarouselName {
+  font-size: 7px;
+  line-height: 1.2;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  display: -webkit-box;
+  overflow: hidden;
+}
+
+.roadStopCarouselWx {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 4px;
+  font-size: 6px;
+  letter-spacing: 0.5px;
+}
+
+.roadScrollPoiRow {
+  position: absolute;
+  left: 8px;
+  right: 8px;
+  bottom: 96px;
+  z-index: 4;
+  display: flex;
+  flex-direction: row;
+  gap: 6px;
+  align-items: stretch;
+  pointer-events: none;
+}
+
+.roadScrollPoi {
+  flex: 1 1 0;
+  min-width: 0;
+  pointer-events: auto;
+  padding: 5px 6px;
+  border: 2px solid var(--gold-dim);
+  background: rgba(0, 0, 0, 0.6);
+  color: var(--gold);
+  font-family: var(--font-pixel);
+  font-size: 7px;
+  letter-spacing: 0.5px;
+  border-radius: 4px;
+  text-align: left;
+  line-height: 1.2;
+  cursor: pointer;
+  overflow: hidden;
+  transition: border-color 120ms ease, background 120ms ease;
+}
+
+.roadScrollPoiDist {
+  opacity: 0.85;
+  font-size: 6px;
+  margin-bottom: 2px;
+}
+
+.roadScrollPoiName {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-word;
+}
+
+.roadScrollPoiWx {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 3px;
+  font-size: 6px;
+  letter-spacing: 0.5px;
+  color: var(--gold);
+}
+
+.roadScrollPoiWx .pixelSprite {
+  flex-shrink: 0;
+}
+
+.roadScrollPoi.is-active,
+.roadScrollPoi:hover,
+.roadScrollPoi:focus-visible {
+  border-color: var(--gold);
+  background: rgba(0, 0, 0, 0.82);
+  outline: none;
+}
+
+.roadScrollPoi:focus-visible {
+  box-shadow: 0 0 0 2px rgba(212, 167, 70, 0.45);
+}
+
+@media (max-width: 420px) {
+  .roadScrollPoiRow {
+    bottom: 102px;
+    gap: 4px;
+  }
+  .roadScrollPoi {
+    font-size: 6px;
+    padding: 4px 5px;
+  }
+  .roadScrollPoiDist {
+    font-size: 5px;
+  }
+
+  .roadStopCarouselHost {
+    bottom: 92px;
+  }
+
+  .roadStopCarouselDist,
+  .roadStopCarouselWx,
+  .roadStopCarouselEtaLabel {
+    font-size: 7px !important;
+  }
+
+  .poiModalHeroCredit {
+    font-size: 7px !important;
+  }
+
+  .roadScrollBiomeRibbon {
+    font-size: 8px !important;
+  }
+}
+
+.roadScrollBiomeRibbon {
+  position: absolute;
+  left: 8px;
+  top: 8px;
+  padding: 6px 8px;
+  background: rgba(0, 0, 0, 0.45);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  font-family: var(--font-pixel);
+  font-size: 7px;
+  color: var(--gold);
+  z-index: 10;
+}
+
+.settingsDevToolsFooter {
+  margin: 16px 0 0;
+  padding-top: 12px;
+  border-top: 1px solid var(--border);
+  text-align: center;
+}
+
+.settingsDevChip {
+  appearance: none;
+  font-family: var(--font-pixel);
+  font-size: 7px;
+  letter-spacing: 0.5px;
+  padding: 8px 12px;
+  border-radius: 4px;
+  border: 2px solid var(--gold-dim);
+  background: rgba(0, 0, 0, 0.35);
+  color: var(--muted);
+  cursor: pointer;
+}
+
+.settingsDevChip:hover:not(:disabled),
+.settingsDevChip:focus-visible:not(:disabled) {
+  border-color: var(--gold);
+  color: var(--gold);
+  outline: none;
+}
+
+.settingsDevChip:disabled {
+  opacity: 0.45;
+  cursor: default;
+}
+
+/* Road Scroll — Prius sprite (public/prius.svg); scaleX set inline for west/east */
+.roadScrollCar {
+  position: absolute;
+  bottom: 18px;
+  width: 112px;
+  height: auto;
+  line-height: 0;
+  filter: drop-shadow(0 5px 0 rgba(0, 0, 0, 0.35));
+  z-index: 5;
+}
+
+/* Outbound: driver-side right (westbound); homeward: other side of the panel */
+.roadScrollCar--west {
+  right: 14px;
+  left: auto;
+}
+
+.roadScrollCar--east {
+  left: 14px;
+  right: auto;
+}
+
+.roadScrollCarSprite {
+  display: block;
+  width: 112px;
+  height: auto;
+  max-height: 52px;
+  object-fit: contain;
+}
+
+/* Brutalist iconography — chunky tiles around MUI SVG icons */
+.brutalIcon {
+  --bi-size: 22px;
+  display: inline-grid;
+  place-items: center;
+  width: calc(var(--bi-size) + 14px);
+  height: calc(var(--bi-size) + 14px);
+  border: 2px solid var(--gold-dim);
+  background: var(--panel2);
+  color: var(--gold);
+  border-radius: 2px;
+  box-shadow: 0 3px 0 var(--shadow);
+  flex-shrink: 0;
+  line-height: 0;
+  transition: transform 80ms ease, box-shadow 80ms ease, border-color 120ms ease;
+}
+
+.brutalIcon svg {
+  width: var(--bi-size);
+  height: var(--bi-size);
+  display: block;
+  fill: currentColor;
+}
+
+.brutalIcon--gold {
+  color: var(--gold);
+  border-color: var(--gold-dim);
+}
+
+.brutalIcon--ink {
+  color: var(--text);
+  border-color: var(--border);
+}
+
+.brutalIcon--navy {
+  color: var(--text);
+  background: var(--panel);
+  border-color: var(--panel-highlight);
+}
+
+.brutalIcon--danger {
+  color: var(--danger-fg);
+  border-color: var(--danger-border);
+  background: var(--danger-bg);
+}
+
+.brutalIcon--inline {
+  width: calc(var(--bi-size) + 8px);
+  height: calc(var(--bi-size) + 8px);
+  box-shadow: none;
+}
+
+.brutalIcon--tile {
+  width: calc(var(--bi-size) + 18px);
+  height: calc(var(--bi-size) + 18px);
+  border-width: 3px;
+  box-shadow: 0 4px 0 var(--shadow);
+}
+
+.brutalIcon--nav {
+  width: calc(var(--bi-size) + 10px);
+  height: calc(var(--bi-size) + 10px);
+  border-width: 2px;
+  box-shadow: 0 3px 0 var(--shadow);
+}
+
+.brutalIcon--pin {
+  width: calc(var(--bi-size) + 10px);
+  height: calc(var(--bi-size) + 10px);
+  border-width: 3px;
+  background: linear-gradient(180deg, var(--panel2), var(--panel));
+  box-shadow:
+    0 3px 0 rgba(0, 0, 0, 0.45),
+    inset 1px 1px 0 var(--panel-highlight);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .brutalIcon {
+    transition: none;
+  }
+}
+
+/* POI detail modal — opens from map pins, road-scroll banners, and Supplies rows */
+.poiModalBackdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: grid;
+  place-items: center;
+  padding: 16px;
+  background: var(--overlay-scrim);
+  backdrop-filter: blur(2px);
+  animation: poiModalFadeIn 140ms ease-out;
+}
+
+.poiModalDialog {
+  position: relative;
+  width: min(480px, 100%);
+  max-height: min(86vh, 720px);
+  min-height: 0;
+  margin: 0 !important;
+  padding: 0 !important;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-width: 3px;
+  box-shadow: 0 8px 0 var(--shadow);
+  animation: poiModalRise 160ms ease-out;
+}
+
+/* Hero / carousel sits above the scroll region */
+.poiModalDialog > .poiModalCloseFab + * {
+  flex: 0 0 auto;
+}
+
+.poiModalCloseFab {
+  position: absolute;
+  top: max(8px, env(safe-area-inset-top, 0px));
+  right: max(8px, env(safe-area-inset-right, 0px));
+  z-index: 2;
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
+  min-height: 44px;
+  display: inline-grid;
+  place-items: center;
+  border: 0;
+  padding: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.poiModalCloseFab:focus-visible .brutalIcon {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+}
+
+.poiModalHero {
+  margin: 0;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: linear-gradient(180deg, var(--panel2), var(--panel));
+  border-bottom: 2px solid var(--gold-dim);
+  position: relative;
+  overflow: hidden;
+}
+
+.poiModalHeroImg {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.poiModalHeroCredit {
+  position: absolute;
+  right: 6px;
+  bottom: 6px;
+  padding: 2px 6px;
+  font-family: var(--font-pixel);
+  font-size: 6px;
+  letter-spacing: 0.5px;
+  color: var(--text);
+  background: color-mix(in srgb, var(--bg) 70%, transparent);
+  border: 1px solid var(--border);
+  border-radius: 2px;
+}
+
+.poiModalHeroFallback {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(135deg, var(--panel2), var(--panel));
+  border-bottom: 2px solid var(--gold-dim);
+}
+
+/* POI modal: multi-photo carousel (swipe + arrows + dots) */
+.poiModalCarouselShell {
+  position: relative;
+  width: 100%;
+  border-bottom: 2px solid var(--gold-dim);
+  background: linear-gradient(180deg, var(--panel2), var(--panel));
+}
+
+.poiModalCarouselViewport {
+  position: relative;
+}
+
+.poiModalCarouselTrack {
+  display: flex;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  touch-action: pan-x;
+  scrollbar-width: none;
+  outline: none;
+}
+
+.poiModalCarouselTrack::-webkit-scrollbar {
+  display: none;
+}
+
+.poiModalCarouselTrack:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: -2px;
+}
+
+.poiModalCarouselSlide {
+  flex: 0 0 100%;
+  min-width: 100%;
+  scroll-snap-align: start;
+}
+
+.poiModalCarouselSlide .poiModalHero,
+.poiModalCarouselSlide .poiModalHeroFallback {
+  border-bottom: none;
+}
+
+.poiModalCarouselFab {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 3;
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
+  min-height: 44px;
+  display: inline-grid;
+  place-items: center;
+  padding: 0;
+  border: 2px solid var(--gold-dim);
+  border-radius: 4px;
+  background: color-mix(in srgb, var(--bg) 82%, transparent);
+  color: var(--gold);
+  cursor: pointer;
+  box-shadow: 0 3px 0 var(--shadow);
+}
+
+.poiModalCarouselFab:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
+.poiModalCarouselFab:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+}
+
+.poiModalCarouselFab--prev {
+  left: max(6px, env(safe-area-inset-left, 0px));
+}
+
+.poiModalCarouselFab--next {
+  right: max(6px, env(safe-area-inset-right, 0px));
+}
+
+.poiModalCarouselDots {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 4px;
+  padding: 10px 12px 12px;
+  padding-left: max(12px, env(safe-area-inset-left, 0px));
+  padding-right: max(12px, env(safe-area-inset-right, 0px));
+}
+
+.poiModalCarouselDot {
+  position: relative;
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
+  min-height: 44px;
+  padding: 0;
+  border: 0;
+  border-radius: 4px;
+  background: transparent;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.poiModalCarouselDot::after {
+  content: '';
+  display: block;
+  width: 10px;
+  height: 10px;
+  border: 2px solid var(--border);
+  border-radius: 50%;
+  background: var(--panel2);
+  box-sizing: border-box;
+}
+
+.poiModalCarouselDot.is-active::after {
+  background: var(--gold);
+  border-color: var(--gold-dim);
+}
+
+.poiModalCarouselDot:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+}
+
+.poiModalCarouselSr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .poiModalCarouselTrack {
+    scroll-behavior: auto;
+  }
+}
+
+.poiModalScroll {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+  padding: 16px 16px 12px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+
+.poiModalHeader {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.poiModalHeaderIcon {
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.poiModalHeaderText {
+  min-width: 0;
+}
+
+.poiModalKind {
+  margin: 0 0 4px;
+  font-family: var(--font-pixel);
+  font-size: 7px;
+  letter-spacing: 1px;
+  color: var(--gold);
+  text-transform: uppercase;
+}
+
+.poiModalTitle {
+  margin: 0;
+  font-family: var(--font-pixel);
+  font-size: 12px;
+  line-height: 1.4;
+  color: var(--text);
+}
+
+.poiModalSubtitle {
+  margin: 6px 0 0;
+  font-size: calc(15px * var(--text-scale));
+  color: var(--muted);
+  overflow-wrap: anywhere;
+}
+
+.poiModalSection {
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px dashed var(--border);
+}
+
+.poiModalSection:first-of-type {
+  border-top: 0;
+  padding-top: 0;
+  margin-top: 0;
+}
+
+.poiModalSection h4 {
+  margin: 0 0 8px;
+  font-family: var(--font-pixel);
+  font-size: 8px;
+  letter-spacing: 1px;
+  color: var(--gold);
+  text-transform: uppercase;
+}
+
+.poiModalSection p {
+  margin: 0 0 8px;
+  font-size: calc(17px * var(--text-scale));
+  line-height: 1.45;
+  color: var(--text);
+}
+
+.poiModalSection p:last-child {
+  margin-bottom: 0;
+}
+
+.poiModalFacts {
+  margin: 0;
+  padding-left: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: calc(17px * var(--text-scale));
+  line-height: 1.4;
+  color: var(--text);
+}
+
+.poiModalActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.poiModalAction {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 44px;
+}
+
+.poiModalAction span {
+  overflow-wrap: anywhere;
+  text-align: center;
+}
+
+.poiModalFooter {
+  flex-shrink: 0;
+  margin-top: 0;
+  padding: 12px 16px calc(12px + env(safe-area-inset-bottom, 0px));
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  border-top: 2px solid var(--border);
+  background: var(--panel);
+}
+
+.poiModalCloseBtn {
+  width: 100%;
+}
+
+@keyframes poiModalFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes poiModalRise {
+  from {
+    transform: translateY(8px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@media (max-width: 480px) {
+  .poiModalBackdrop {
+    padding: 0;
+    align-items: stretch;
+  }
+  .poiModalDialog {
+    width: 100%;
+    max-height: 100vh;
+    height: 100vh;
+    border-radius: 0;
+    border-left: 0;
+    border-right: 0;
+  }
+
+  @supports (height: 100dvh) {
+    .poiModalDialog {
+      max-height: 100dvh;
+      height: 100dvh;
+    }
+  }
+
+  .poiModalActions {
+    flex-direction: column;
+  }
+
+  .poiModalAction {
+    width: 100%;
+    box-sizing: border-box;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .poiModalBackdrop,
+  .poiModalDialog {
+    animation: none;
+  }
+}
+
+/* Supplies rows: make whole row clickable to open the modal */
+.suppliesRowButton {
+  appearance: none;
+  width: 100%;
+  text-align: left;
+  background: transparent;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  color: inherit;
+  font: inherit;
+}
+
+.suppliesRowButton:focus-visible .listItem {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+}
+
+.overworldForecast {
+  margin-top: 14px;
+  padding: 10px 12px;
+  border: 2px solid var(--border);
+  border-radius: 6px;
+  background: var(--panel2);
+}
+
+.overworldForecastTitle {
+  font-family: var(--font-pixel);
+  color: var(--gold);
+  font-size: calc(10px * var(--text-scale));
+  letter-spacing: 1px;
+  margin: 0 0 8px;
+}
+
+.overworldForecastList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 8px;
+}
+
+.overworldForecastItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 4px;
+  border-bottom: 1px dashed var(--border);
+}
+
+.overworldForecastItem:last-child {
+  border-bottom: 0;
+}
+
+.overworldForecastInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  font-size: calc(13px * var(--text-scale));
+}
+
+/* ===================================================================
+ * CSS pixel sprites + weather/time-of-day overlays + Press Start intro
+ * =================================================================== */
+
+.pixelSprite {
+  position: relative;
+  display: inline-block;
+  pointer-events: none;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+  transform: translateZ(0);
+}
+
+.pixelSpriteAnchor {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: transparent;
+  display: block;
+}
+
+/* Soft golden bloom behind the sun, simulated by a radial gradient. */
+.celestialHalo {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  background: radial-gradient(
+    closest-side,
+    rgba(255, 230, 140, 0.55) 0%,
+    rgba(255, 200, 90, 0.22) 45%,
+    transparent 75%
+  );
+  filter: blur(1px);
+}
+
+.celestialHalo--moon {
+  background: radial-gradient(
+    closest-side,
+    rgba(220, 232, 248, 0.32) 0%,
+    rgba(160, 180, 220, 0.14) 50%,
+    transparent 80%
+  );
+}
+
+.celestialBody {
+  position: absolute;
+  z-index: 3;
+}
+
+.starField {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.starField .pixelSprite {
+  position: absolute;
+}
+
+@keyframes pixelTwinkle {
+  0%, 100% { opacity: 0.35; }
+  50%      { opacity: 1; }
+}
+
+.animHud[data-motion='on'] .starField .pixelSprite {
+  animation: pixelTwinkle 2.6s ease-in-out infinite;
+}
+
+/* Rain — many raindrop sprites stream diagonally across the road stage. */
+.weatherRain {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.weatherRain .pixelSprite {
+  position: absolute;
+  top: -16px;
+}
+
+@keyframes pixelRainFall {
+  0%   { transform: translate3d(0, -20px, 0); }
+  100% { transform: translate3d(-22px, 280px, 0); }
+}
+
+.animHud[data-motion='on'] .weatherRain .pixelSprite {
+  animation: pixelRainFall linear infinite;
+}
+
+/* Snow — slower, drifting. */
+.weatherSnow {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.weatherSnow .pixelSprite {
+  position: absolute;
+  top: -16px;
+}
+
+@keyframes pixelSnowDrift {
+  0%   { transform: translate3d(0, -20px, 0); }
+  50%  { transform: translate3d(8px, 130px, 0); }
+  100% { transform: translate3d(-6px, 280px, 0); }
+}
+
+.animHud[data-motion='on'] .weatherSnow .pixelSprite {
+  animation: pixelSnowDrift linear infinite;
+}
+
+/* Fog — two horizontal banded gradients drifting in opposite directions. */
+.weatherFog {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.weatherFog .fogBand {
+  position: absolute;
+  left: -50%;
+  width: 200%;
+  height: 38px;
+  background: linear-gradient(
+    180deg,
+    rgba(214, 224, 232, 0) 0%,
+    rgba(214, 224, 232, 0.55) 50%,
+    rgba(214, 224, 232, 0) 100%
+  );
+}
+
+.weatherFog .fogBand--upper {
+  top: 38%;
+  opacity: 0.7;
+}
+
+.weatherFog .fogBand--lower {
+  top: 58%;
+  opacity: 0.85;
+  height: 50px;
+}
+
+@keyframes pixelFogDriftLeft {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-25%); }
+}
+
+@keyframes pixelFogDriftRight {
+  0%   { transform: translateX(-25%); }
+  100% { transform: translateX(0); }
+}
+
+.animHud[data-motion='on'] .weatherFog .fogBand--upper {
+  animation: pixelFogDriftLeft 18s linear infinite;
+}
+
+.animHud[data-motion='on'] .weatherFog .fogBand--lower {
+  animation: pixelFogDriftRight 26s linear infinite;
+}
+
+/* Cold tint — soft top-down blue veil. */
+.weatherCold {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background: linear-gradient(180deg, rgba(120, 160, 200, 0.18), transparent 70%);
+}
+
+/* Heat shimmer — narrow band above the road that pulses up/down with a blur. */
+.weatherHeat {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 38px;
+  height: 32px;
+  z-index: 3;
+  pointer-events: none;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 200, 140, 0) 0%,
+    rgba(255, 200, 140, 0.18) 50%,
+    rgba(255, 200, 140, 0) 100%
+  );
+  filter: blur(1.5px);
+}
+
+@keyframes pixelHeatShimmer {
+  0%, 100% { transform: translateY(0); opacity: 0.7; }
+  50%      { transform: translateY(-3px); opacity: 1; }
+}
+
+.animHud[data-motion='on'] .weatherHeat {
+  animation: pixelHeatShimmer 1.6s ease-in-out infinite;
+}
+
+/* Lightning — full-stage white flash + sprite bolt. */
+.weatherLightning {
+  position: absolute;
+  inset: 0;
+  z-index: 6;
+  pointer-events: none;
+  opacity: 0;
+}
+
+.weatherLightning .lightningFlash {
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.9);
+  mix-blend-mode: screen;
+}
+
+.weatherLightning .lightningBolt {
+  position: absolute;
+  top: 8px;
+  filter: drop-shadow(0 0 6px rgba(255, 245, 160, 0.9));
+}
+
+@keyframes pixelLightningFlash {
+  0%   { opacity: 0; }
+  3%   { opacity: 1; }
+  10%  { opacity: 0.2; }
+  14%  { opacity: 1; }
+  22%  { opacity: 0; }
+  100% { opacity: 0; }
+}
+
+.animHud[data-motion='on'] .weatherLightning {
+  animation: pixelLightningFlash 7s steps(48, end) infinite;
+}
+
+/* Headlight cone — only renders at night. Anchored at the Prius nose. */
+.headlightCone {
+  position: absolute;
+  z-index: 4;
+  pointer-events: none;
+  width: 110px;
+  height: 60px;
+  background: radial-gradient(
+    ellipse at 0% 50%,
+    rgba(255, 240, 180, 0.55) 0%,
+    rgba(255, 230, 150, 0.22) 35%,
+    transparent 70%
+  );
+  clip-path: polygon(0 40%, 100% 0%, 100% 100%, 0 60%);
+  mix-blend-mode: screen;
+}
+
+.headlightCone--west {
+  /* Heading west, cone shoots to the left of the Prius (which is mirrored when westbound). */
+  transform: scaleX(-1);
+}
+
+/* HUD condition glyph (used inside the state pill). */
+.hudConditionGlyph {
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0 4px;
+}
+
+/* Press Start RPG intro overlay. */
+.introOverlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(
+    ellipse at 50% 30%,
+    var(--intro-vignette-inner) 0%,
+    var(--intro-vignette-mid) 70%,
+    var(--intro-vignette-outer) 100%
+  );
+  padding: 24px;
+  overflow: hidden;
+}
+
+.introOverlay::before {
+  /* Subtle CRT scanlines */
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.18) 0,
+    rgba(0, 0, 0, 0.18) 2px,
+    transparent 2px,
+    transparent 4px
+  );
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+.introCard {
+  position: relative;
+  z-index: 1;
+  width: min(520px, 100%);
+  border: 4px solid var(--gold-dim);
+  background: linear-gradient(180deg, var(--panel) 0%, var(--panel2) 100%);
+  box-shadow:
+    inset 1px 1px 0 var(--panel-highlight),
+    inset -1px -1px 0 var(--shadow),
+    0 8px 0 var(--shadow);
+  border-radius: 6px;
+  padding: 22px 20px;
+  text-align: center;
+}
+
+.introCard--button {
+  appearance: none;
+  display: block;
+  width: 100%;
+  margin: 0;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+  text-align: center;
+}
+
+.introCard--button:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 4px;
+}
+
+.introTitle {
+  font-family: var(--font-pixel);
+  color: var(--gold);
+  font-size: calc(18px * var(--text-scale));
+  letter-spacing: 1px;
+  margin: 0 0 6px;
+  line-height: 1.1;
+}
+
+.introSubtitle {
+  font-family: var(--font-pixel);
+  color: var(--gold);
+  font-size: calc(8px * var(--text-scale));
+  opacity: 0.85;
+  margin: 0 0 18px;
+  letter-spacing: 1px;
+}
+
+.introHero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 4px 0 18px;
+  min-height: 80px;
+}
+
+.introHeroSunWrap {
+  position: relative;
+  display: inline-flex;
+}
+
+.introPrompt {
+  font-family: var(--font-pixel);
+  color: var(--gold);
+  font-size: calc(10px * var(--text-scale));
+  letter-spacing: 2px;
+}
+
+@keyframes pixelPressStartBlink {
+  0%, 49%   { opacity: 1; }
+  50%, 100% { opacity: 0.18; }
+}
+
+.animHud[data-motion='on'] .introPrompt--blink {
+  animation: pixelPressStartBlink 1s steps(2, end) infinite;
+}
+
+.introMenu {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 8px 0 4px;
+  text-align: left;
+}
+
+.introMenuItem {
+  appearance: none;
+  border: 2px solid transparent;
+  background: transparent;
+  color: var(--gold);
+  font-family: var(--font-pixel);
+  font-size: calc(10px * var(--text-scale));
+  letter-spacing: 1px;
+  padding: 10px 12px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-radius: 4px;
+  min-height: 44px;
+  text-align: left;
+}
+
+.introMenuItem:hover,
+.introMenuItem:focus-visible,
+.introMenuItem.is-focused {
+  border-color: var(--gold);
+  background: var(--panel2);
+  outline: none;
+}
+
+.introMenuCursor {
+  width: 12px;
+  display: inline-block;
+  text-align: center;
+  font-family: var(--font-pixel);
+  color: var(--gold);
+  opacity: 0.35;
+}
+
+.introMenuItem.is-focused .introMenuCursor,
+.introMenuItem:hover .introMenuCursor {
+  opacity: 1;
+}
+
+.introNote {
+  font-family: var(--font-body);
+  font-size: calc(13px * var(--text-scale));
+  color: var(--text);
+  opacity: 0.7;
+  margin: 12px 0 0;
+}
+
+.introCustomTime {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  text-align: left;
+}
+
+.introCustomTime input[type='datetime-local'] {
+  font-family: var(--font-body);
+  font-size: 14px;
+  padding: 10px;
+  border: 2px solid var(--border);
+  background: var(--panel);
+  color: var(--gold);
+  border-radius: 4px;
+  min-height: 44px;
+}
+
+.introActions {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+  margin-top: 8px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .starField .pixelSprite,
+  .weatherRain .pixelSprite,
+  .weatherSnow .pixelSprite,
+  .weatherFog .fogBand,
+  .weatherHeat,
+  .weatherLightning,
+  .introPrompt--blink {
+    animation: none !important;
+  }
+}
+
+.appShell[data-motion='off'] .starField .pixelSprite,
+.appShell[data-motion='off'] .weatherRain .pixelSprite,
+.appShell[data-motion='off'] .weatherSnow .pixelSprite,
+.appShell[data-motion='off'] .weatherFog .fogBand,
+.appShell[data-motion='off'] .weatherHeat,
+.appShell[data-motion='off'] .weatherLightning,
+.appShell[data-motion='off'] .introPrompt--blink,
+.appShell[data-motion='off'] .poiModalBackdrop,
+.appShell[data-motion='off'] .poiModalDialog {
+  animation: none !important;
+}

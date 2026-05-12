@@ -1,0 +1,754 @@
+[
+  {
+    "id": "lansing-meijer",
+    "name": "Meijer (stock up)",
+    "kind": "supplies",
+    "lat": 42.747,
+    "lng": -84.553,
+    "note": "Water, snacks, phone cables, paper maps backup.",
+    "alongRouteHint": "Near Lansing start",
+    "website": "https://www.meijer.com/",
+    "images": [
+      {
+        "src": "/poi/lansingmeijer-0.png",
+        "alt": "Meijer supercenter storefront in the Lansing, Michigan area."
+      }
+    ]
+  },
+  {
+    "id": "marshall-rest",
+    "name": "I-94 Rest Area (Marshall area)",
+    "kind": "rest",
+    "lat": 42.32,
+    "lng": -84.98,
+    "note": "Short walk break before Indiana.",
+    "alongRouteHint": "MI I-94 corridor",
+    "images": [
+      {
+        "src": "/poi/Rest-Marshall-0.jpg",
+        "alt": "I-94 rest area near Marshall, Michigan."
+      }
+    ]
+  },
+  {
+    "id": "kalamazoo-loves",
+    "name": "Love's Travel Stop (Kalamazoo)",
+    "kind": "gas",
+    "lat": 42.4477,
+    "lng": -85.8289,
+    "note": "Full-service truck stop off US-131 — fuel, showers, hot food, and a big parking lot before you aim for Chicago.",
+    "alongRouteHint": "MI Kalamazoo — US-131 exit 44 (Adobe Rd)",
+    "address": "7900 Adobe Rd, Kalamazoo, MI 49009",
+    "phone": "+12699030294",
+    "website": "https://www.loves.com/"
+  },
+  {
+    "id": "joliet-food",
+    "name": "Happy Falafel (Channahon)",
+    "kind": "food",
+    "lat": 41.422,
+    "lng": -88.234,
+    "note": "Vegetarian-friendly pit stop after the Chicago merge — falafel, hummus, salads, and Mediterranean bowls. The Joliet/I-80 corridor can be slim on veggie options; this spot is only a little over a mile south of I-80.",
+    "alongRouteHint": "Channahon, ~1 mi south of I-80 — head back to the interstate the way you came, or follow US-6 (Hwy 6) west to pick up I-80 west.",
+    "address": "27243 Saxony Dr, Channahon, IL 60410",
+    "phone": "+18158285327",
+    "website": "https://www.happyfalafel.com/",
+    "images": [
+      {
+        "src": "/poi/happyfalafel-0.jpg",
+        "alt": "Happy Falafel storefront in Channahon, Illinois."
+      }
+    ]
+  },
+  {
+    "id": "iowa-city-rest",
+    "name": "Iowa City area rest",
+    "kind": "rest",
+    "lat": 41.65,
+    "lng": -91.53,
+    "note": "Clean restrooms and leg stretch.",
+    "alongRouteHint": "IA I-80",
+    "images": [
+      {
+        "src": "/poi/tiffinrest-0.png",
+        "alt": "Iowa rest area near Tiffin, just west of Iowa City."
+      }
+    ]
+  },
+  {
+    "id": "des-moines-gas",
+    "name": "Des Moines fuel stop",
+    "kind": "gas",
+    "lat": 41.6,
+    "lng": -93.61,
+    "note": "Major hub — good prices, many options.",
+    "alongRouteHint": "IA capital",
+    "images": [
+      {
+        "src": "/poi/LovesCliveIAGas-0.png",
+        "alt": "Love's Travel Stop fuel canopy in Clive, Iowa near Des Moines."
+      },
+      {
+        "src": "/poi/LovesCliveIAGas-1.jpeg",
+        "alt": "Storefront and pumps at the Clive, Iowa Love's Travel Stop."
+      }
+    ]
+  },
+  {
+    "id": "omaha-plaza",
+    "name": "Omaha I-80 travel plaza",
+    "kind": "gas",
+    "lat": 41.23,
+    "lng": -95.95,
+    "note": "Nebraska entry fuel sanity check.",
+    "alongRouteHint": "NE I-80"
+  },
+  {
+    "id": "kearney-rest",
+    "name": "Great Platte River Road Archway (Kearney)",
+    "kind": "landmark",
+    "lat": 40.7,
+    "lng": -99.08,
+    "note": "Massive arch literally spanning I-80, with a museum tucked inside.",
+    "url": "https://archway.org/",
+    "website": "https://archway.org/",
+    "phone": "+13082378000",
+    "address": "3060 E 1st St, Kearney, NE 68847",
+    "alongRouteHint": "NE mid-state",
+    "images": [
+      {
+        "src": "/poi/greatplattearch-0.jpg",
+        "remote": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Great_Platte_River_Road_Archway.jpg/640px-Great_Platte_River_Road_Archway.jpg",
+        "alt": "The Great Platte River Road Archway spanning Interstate 80 near Kearney, Nebraska."
+      },
+      {
+        "src": "/poi/kearneyarch-1.png",
+        "alt": "Closer view of the Great Platte River Road Archway museum span."
+      }
+    ],
+    "history": "Opened in 2000 to honor pioneers, Pony Express riders, and railroad crews who all rolled west through the Platte River valley. The 308-foot bridge was prefabricated, then floated into place across the interstate in a single overnight closure of I-80.\n\nInside, an 80,000-square-foot museum walks visitors from Native trails to today's truckers, with audio tours that auto-trigger as you move through the dioramas.",
+    "funFacts": [
+      "It is the only museum in the world built directly over a US interstate.",
+      "The bridge weighs 1,500 tons and was lowered into place in roughly eight hours.",
+      "Audio tours are available in eight languages so road-trippers from anywhere can follow along."
+    ]
+  },
+  {
+    "id": "north-platte-food",
+    "name": "North Platte services",
+    "kind": "food",
+    "lat": 41.12,
+    "lng": -100.76,
+    "note": "Long NE stretch — good dinner break.",
+    "alongRouteHint": "NE I-80",
+    "images": [
+      {
+        "src": "/poi/north-platte-desimasala-0.jpg",
+        "alt": "Desi Masala Indian restaurant exterior in North Platte, Nebraska."
+      },
+      {
+        "src": "/poi/northplatte-desimasala-1.jpg",
+        "alt": "Indian dishes plated at Desi Masala in North Platte."
+      }
+    ]
+  },
+  {
+    "id": "cheyenne-gas",
+    "name": "Cheyenne fuel",
+    "kind": "gas",
+    "lat": 41.14,
+    "lng": -104.82,
+    "note": "Fill before Wyoming climb segments.",
+    "alongRouteHint": "WY I-80",
+    "images": [
+      {
+        "src": "/poi/cheyennegas-0.jpeg",
+        "alt": "Fuel station in Cheyenne, Wyoming on the I-80 corridor."
+      }
+    ]
+  },
+  {
+    "id": "laramie-rest",
+    "name": "Laramie summit rest",
+    "kind": "rest",
+    "lat": 41.31,
+    "lng": -105.59,
+    "note": "Altitude + wind — stretch and hydrate.",
+    "alongRouteHint": "WY I-80",
+    "images": [
+      {
+        "src": "/poi/laramiesummit-rest-0.jpg",
+        "alt": "Laramie Summit rest area at the high point of I-80 in Wyoming."
+      },
+      {
+        "src": "/poi/laramiesummit-rest-1.jpg",
+        "alt": "Open Wyoming landscape from the Laramie Summit rest area."
+      }
+    ]
+  },
+  {
+    "id": "evanston-ut-border",
+    "name": "Evanston WY (near Utah)",
+    "kind": "gas",
+    "lat": 41.27,
+    "lng": -110.96,
+    "note": "Last WY stop before mountain descent planning.",
+    "alongRouteHint": "WY I-80",
+    "images": [
+      {
+        "src": "/poi/Evanston-Gas-0.png",
+        "alt": "Fuel station in Evanston, Wyoming near the Utah border."
+      },
+      {
+        "src": "/poi/wyomingdesert-0.jpg",
+        "alt": "Wide Wyoming high-desert landscape on the approach to Evanston."
+      }
+    ]
+  },
+  {
+    "id": "salt-lake-supplies",
+    "name": "Salt Lake City supplies",
+    "kind": "supplies",
+    "lat": 40.76,
+    "lng": -111.89,
+    "note": "Festival snacks, sunscreen, earplugs.",
+    "alongRouteHint": "Before Bluffdale"
+  },
+  {
+    "id": "kilby-block-party",
+    "name": "Kilby Block Party (SLC)",
+    "kind": "fun",
+    "lat": 40.76,
+    "lng": -111.99,
+    "note": "Three-day indie music festival hosted by Kilby Court — the whole reason for the trip.",
+    "url": "https://kilbycourt.com/",
+    "website": "https://kilbycourt.com/",
+    "phone": "+18013643538",
+    "address": "Utah State Fairpark, 155 N 1000 W, Salt Lake City, UT 84116",
+    "alongRouteHint": "SLC",
+    "image": {
+      "src": "/poi/kilby-block-party.jpg",
+      "alt": "Kilby Block Party festival grounds at the Utah State Fairpark in Salt Lake City."
+    },
+    "history": "Kilby Court is a tiny all-ages indie venue tucked behind a garage door in SLC. The Block Party started as a backyard birthday in 2022 and exploded into a multi-day festival on Utah State Fairpark grounds.\n\nLineups skew indie rock, dream pop, and shoegaze — Modest Mouse, Pavement, Phoebe Bridgers, and a long bench of younger acts have all played the bigger stages while the original Kilby Court room hosts secret late-night sets.",
+    "funFacts": [
+      "The original venue capacity is around 200 — Block Party drew over 30,000 across three days in 2023.",
+      "Ticket holders get free shuttles between the festival and the original Kilby Court space all weekend.",
+      "Bring earplugs — outdoor stages stack against each other and bleed into a wall of sound at the back."
+    ]
+  },
+  {
+    "id": "bluffdale-airbnb",
+    "name": "Bluffdale stay (Airbnb)",
+    "kind": "landmark",
+    "lat": 40.4897,
+    "lng": -111.9388,
+    "note": "Arrive May 14 — depart May 18.",
+    "alongRouteHint": "Quest destination"
+  },
+  {
+    "id": "emergency-511",
+    "name": "Utah road conditions (UDOT)",
+    "kind": "emergency",
+    "lat": 40.76,
+    "lng": -111.89,
+    "note": "Closures, weather, and crashes — call 511 in-state or check online.",
+    "url": "https://udottraffic.utah.gov/",
+    "website": "https://udottraffic.utah.gov/",
+    "phone": "+18018873700",
+    "address": "Utah Department of Transportation"
+  },
+  {
+    "id": "indiana-dunes-np",
+    "name": "Indiana Dunes National Park",
+    "kind": "landmark",
+    "lat": 41.66,
+    "lng": -87.05,
+    "note": "Lake Michigan dunes, beaches, and trails just off I-94.",
+    "url": "https://www.nps.gov/indu/",
+    "website": "https://www.nps.gov/indu/",
+    "phone": "+12193951882",
+    "address": "1215 N State Road 49, Porter, IN 46304",
+    "alongRouteHint": "IN lakefront detour",
+    "images": [
+      {
+        "src": "/poi/IndianaDunes-0.jpg",
+        "remote": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Indiana_Dunes_National_Park_2019.jpg/640px-Indiana_Dunes_National_Park_2019.jpg",
+        "alt": "Sand dunes and Lake Michigan shoreline at Indiana Dunes National Park."
+      },
+      {
+        "src": "/poi/IndianaDunes-1.jpg",
+        "alt": "Beach grasses and rolling dunes along the Indiana Dunes lakefront."
+      },
+      {
+        "src": "/poi/IndianaDunes-2.jpg",
+        "alt": "Boardwalk trail winding through the dunes at Indiana Dunes National Park."
+      },
+      {
+        "src": "/poi/indianadunes-3.png",
+        "alt": "Wide view of the Lake Michigan shoreline at Indiana Dunes National Park."
+      }
+    ],
+    "history": "Locals fought for half a century to protect this sliver of Lake Michigan shoreline from steel-mill expansion. It became a National Lakeshore in 1966 and was finally upgraded to a full National Park in 2019.\n\nThe park crams 50 miles of trails, 15 miles of beach, and over 1,100 native plant species into a narrow strip wedged between heavy industry and the lake.",
+    "funFacts": [
+      "It is the seventh-most biodiverse national park in the United States.",
+      "Mt. Baldy is a 'living dune' that migrates inland 4-5 feet every year, swallowing trees as it moves.",
+      "On a clear day you can see the Chicago skyline shimmering across the lake from West Beach."
+    ]
+  },
+  {
+    "id": "chicago-skyway-view",
+    "name": "Chicago Skyway viewpoint",
+    "kind": "fun",
+    "lat": 41.71,
+    "lng": -87.55,
+    "note": "Elevated toll bridge with skyline views as you cross south of the city.",
+    "alongRouteHint": "IL Chicago crossing",
+    "images": [
+      {
+        "src": "/poi/ChicagoSkyway-0.jpg",
+        "remote": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Chicago_Skyway_Bridge.jpg/640px-Chicago_Skyway_Bridge.jpg",
+        "alt": "The Chicago Skyway truss bridge curving above the Calumet River."
+      }
+    ],
+    "history": "Opened in 1958 to shortcut traffic between the Indiana Toll Road and the Dan Ryan Expressway, the Skyway lifts I-90 nearly 130 feet above the Calumet River on a steel-cantilever truss.\n\nThe city famously leased the road for 99 years to private operators in 2005 — one of the first big public-infrastructure leases in the US.",
+    "funFacts": [
+      "It is 7.8 miles long with a single toll plaza — pay once, drive the whole thing.",
+      "The view east at sunset gives you the full Chicago skyline silhouetted over Lake Michigan.",
+      "Federal regulators banned new toll bridges on interstates shortly after the Skyway opened, making it a one-of-a-kind."
+    ]
+  },
+  {
+    "id": "starved-rock-sp",
+    "name": "Starved Rock State Park",
+    "kind": "landmark",
+    "lat": 41.32,
+    "lng": -88.99,
+    "note": "Sandstone canyons and waterfalls, ~15 mi off I-80 near Utica.",
+    "url": "https://dnr.illinois.gov/parks/park.starvedrock.html",
+    "website": "https://dnr.illinois.gov/parks/park.starvedrock.html",
+    "phone": "+18156674906",
+    "address": "2668 E 875th Rd, Oglesby, IL 61348",
+    "alongRouteHint": "IL I-80 detour",
+    "images": [
+      {
+        "src": "/poi/starvedrock-0.jpg",
+        "remote": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Starved_Rock_State_Park_2.jpg/640px-Starved_Rock_State_Park_2.jpg",
+        "alt": "Sandstone canyon walls and a frozen waterfall at Starved Rock State Park, Illinois."
+      },
+      {
+        "src": "/poi/starvedrock-1.jpg",
+        "alt": "Forested canyon trail at Starved Rock State Park."
+      },
+      {
+        "src": "/poi/starvedrock-2.jpg",
+        "alt": "Overlook above the Illinois River from Starved Rock State Park."
+      }
+    ],
+    "history": "The 'starved rock' itself is a 125-foot sandstone bluff above the Illinois River. It was named for an 18th-century legend in which a band of Illiniwek warriors took refuge on top and were besieged by an Ottawa-Potawatomi war party until they starved.\n\nToday 18 sandstone canyons cut through the park, fed by seasonal waterfalls that freeze into towering blue-ice columns every winter.",
+    "funFacts": [
+      "It draws over 2 million visitors a year — the most-visited state park in Illinois.",
+      "St. Louis Canyon's 80-foot waterfall freezes solid most Januaries and turns into an ice-climbing destination.",
+      "Bald eagles winter at the Illinois Waterway Visitor Center across the river — open eagle-watching weekends in January."
+    ]
+  },
+  {
+    "id": "quad-cities-river",
+    "name": "Quad Cities / Mississippi crossing",
+    "kind": "landmark",
+    "lat": 41.52,
+    "lng": -90.58,
+    "note": "Big-river milestone at Davenport — the I-80 bridge gives you a wide-open Mississippi view.",
+    "alongRouteHint": "IA-IL border",
+    "images": [
+      {
+        "src": "/poi/MississippiCrossing-0.webp",
+        "remote": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Centennial_Bridge_-_Davenport.jpg/640px-Centennial_Bridge_-_Davenport.jpg",
+        "alt": "The Mississippi River framed by bridges between Davenport, Iowa and the Quad Cities."
+      },
+      {
+        "src": "/poi/mississippicrossing-0.png",
+        "alt": "I-80 bridge spanning the Mississippi River at the Iowa-Illinois border."
+      },
+      {
+        "src": "/poi/mississippicrossing-1.png",
+        "alt": "Wide view of the Mississippi River from the Quad Cities crossing."
+      },
+      {
+        "src": "/poi/mississippicrossing-2.jpg",
+        "alt": "Bridge structure framing the Mississippi at Davenport."
+      },
+      {
+        "src": "/poi/mississippicrossing-3.jpg",
+        "alt": "Quad Cities riverfront along the Mississippi crossing."
+      }
+    ],
+    "history": "The Quad Cities — Davenport and Bettendorf in Iowa, Rock Island and Moline in Illinois — straddle the Mississippi at a wide bend that has been a river-crossing town since the 1850s.\n\nThe I-80 bridge here is the I-80 Mississippi River Crossing, completed in 1966 and one of the first dedicated interstate spans across the river.",
+    "funFacts": [
+      "Davenport never built a permanent flood wall — the riverfront parks flood by design every spring.",
+      "John Deere is headquartered just south in Moline — the company museum is a quick detour.",
+      "The Mississippi flows east-to-west here, one of the few stretches where the country's biggest river runs sideways."
+    ]
+  },
+  {
+    "id": "iowa-80-truckstop",
+    "name": "Iowa 80 — World's Largest Truckstop",
+    "kind": "fun",
+    "lat": 41.59,
+    "lng": -90.78,
+    "note": "Trucking museum, food court, dentist (yes, really). Iconic I-80 stop.",
+    "url": "https://iowa80truckstop.com/",
+    "website": "https://iowa80truckstop.com/",
+    "phone": "+15632846961",
+    "address": "755 W Iowa 80 Rd, Walcott, IA 52773",
+    "alongRouteHint": "IA Walcott exit 284",
+    "images": [
+      {
+        "src": "/poi/WorldsLargestTruckStop-0.png",
+        "remote": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Iowa_80_Truckstop_Walcott.jpg/640px-Iowa_80_Truckstop_Walcott.jpg",
+        "alt": "Wide aerial-style view of the Iowa 80 Truckstop in Walcott, Iowa."
+      },
+      {
+        "src": "/poi/WorldsLargestTruckStop-1.png",
+        "alt": "Iconic 'World's Largest Truckstop' signage at Iowa 80."
+      },
+      {
+        "src": "/poi/worldslargesttruckstop-2.jpg",
+        "alt": "Trucking museum and parking lot panorama at Iowa 80."
+      }
+    ],
+    "history": "Iowa 80 opened in 1964, weeks after I-80 itself reached this corner of Iowa, and has been growing ever since. It now sits on a 225-acre site with a 300-seat restaurant, theater, dentist's office, chiropractor, library, and barbershop.\n\nThe on-site Trucking Museum (free) holds antique rigs, restored cabover trucks, and one of the country's largest collections of trucking memorabilia.",
+    "funFacts": [
+      "5,000+ travelers pass through every day, including 2,000+ professional truckers.",
+      "The annual Walcott Truckers Jamboree every July draws tens of thousands and includes a Super Truck Beauty Contest.",
+      "Yes, you can really get a haircut, your teeth cleaned, and your truck washed without leaving the lot."
+    ]
+  },
+  {
+    "id": "field-of-dreams",
+    "name": "Field of Dreams (Dyersville)",
+    "kind": "fun",
+    "lat": 42.47,
+    "lng": -91.00,
+    "note": "The actual cornfield ballpark from the movie — ~25 mi north of I-80.",
+    "url": "https://www.fieldofdreamsmoviesite.com/",
+    "website": "https://www.fieldofdreamsmoviesite.com/",
+    "phone": "+15638758404",
+    "address": "28995 Lansing Rd, Dyersville, IA 52040",
+    "alongRouteHint": "IA detour north",
+    "image": {
+      "src": "/poi/field-of-dreams.jpg",
+      "remote": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Field_of_Dreams_movie_site.jpg/640px-Field_of_Dreams_movie_site.jpg",
+      "alt": "The Field of Dreams baseball diamond carved into an Iowa cornfield."
+    },
+    "history": "This is the actual diamond from the 1989 Kevin Costner film, carved out of a working family farm in northeast Iowa. The Lansing family who owned the original right-field corn opened the site to the public the same year the movie premiered.\n\nThe site has hosted MLB games — the Yankees vs White Sox 'Field of Dreams Game' in 2021 was played in a custom 8,000-seat stadium built in the corn next door.",
+    "funFacts": [
+      "Admission is free and the site is open to the public most days April through November.",
+      "You can run the bases, take a turn at bat, or just sit in the bleachers and watch the corn.",
+      "The corn really does grow back in over the outfield every spring; the diamond stays mowed year-round."
+    ]
+  },
+  {
+    "id": "henry-doorly-zoo",
+    "name": "Henry Doorly Zoo (Omaha)",
+    "kind": "fun",
+    "lat": 41.22,
+    "lng": -95.93,
+    "note": "Top-ranked US zoo — desert dome and rainforest are quick crowd-pleasers.",
+    "url": "https://www.omahazoo.com/",
+    "website": "https://www.omahazoo.com/",
+    "phone": "+14027338401",
+    "address": "3701 S 10th St, Omaha, NE 68107",
+    "alongRouteHint": "NE Omaha",
+    "images": [
+      {
+        "src": "/poi/DoorlyZoo-0.jpg",
+        "remote": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Desert_Dome_at_Henry_Doorly_Zoo.jpg/640px-Desert_Dome_at_Henry_Doorly_Zoo.jpg",
+        "alt": "The geodesic Desert Dome at the Henry Doorly Zoo in Omaha, Nebraska."
+      },
+      {
+        "src": "/poi/DoorlyZoo-2.jpg",
+        "alt": "Indoor rainforest canopy inside the Henry Doorly Zoo."
+      }
+    ],
+    "history": "Started in 1894 as a small city park menagerie, the zoo was reborn in the 1960s after a $750,000 gift from publisher Henry Doorly. It now spans 160 acres and has been ranked the world's best zoo by TripAdvisor users multiple years running.\n\nIt is a leader in conservation, running breeding programs for endangered species and operating one of the world's largest indoor rainforests under a giant glass-and-steel canopy.",
+    "funFacts": [
+      "The Desert Dome is the world's largest indoor desert under a single geodesic glass roof.",
+      "The Lied Jungle is the largest indoor rainforest in North America at 1.5 acres.",
+      "Kingdoms of the Night is the world's largest nocturnal exhibit and indoor swamp."
+    ]
+  },
+  {
+    "id": "carhenge",
+    "name": "Carhenge (Alliance NE)",
+    "kind": "landmark",
+    "lat": 42.14,
+    "lng": -102.86,
+    "note": "Stonehenge built from spray-painted vintage cars — long detour but unforgettable.",
+    "url": "https://carhenge.com/",
+    "website": "https://carhenge.com/",
+    "phone": "+13087621520",
+    "address": "2151 Co Rd 59, Alliance, NE 69301",
+    "alongRouteHint": "NE far north detour",
+    "images": [
+      {
+        "src": "/poi/carhenge-0.jpg",
+        "remote": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Carhenge%2C_Alliance%2C_NE.jpg/640px-Carhenge%2C_Alliance%2C_NE.jpg",
+        "alt": "Vintage cars stacked and buried in the same arrangement as Stonehenge, painted gray, on the Nebraska plains."
+      },
+      {
+        "src": "/poi/carhenge-1.jpeg",
+        "alt": "Closer view of the painted-gray cars forming Carhenge's stone-circle arrangement."
+      },
+      {
+        "src": "/poi/carhenge-2.jpg",
+        "remote": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Carhenge_%2814166271901%29.jpg/640px-Carhenge_%2814166271901%29.jpg",
+        "alt": "Wide view of the Carhenge automobile circle from the surrounding prairie."
+      }
+    ],
+    "history": "Jim Reinders built Carhenge in 1987 as a memorial to his father on the family farm. He used 39 American-made cars from the 1950s-70s, arranging and burying them to scale-mirror Stonehenge's heel-stone alignment.\n\nWhat started as a one-time tribute became a roadside-Americana magnet. The local Friends of Carhenge nonprofit now keeps it open free, year-round.",
+    "funFacts": [
+      "Every car is painted Stonehenge gray — locals nicknamed it the 'oil-pan of the high plains'.",
+      "It is one of only two full-scale Stonehenge replicas in the world (the other is in the UK).",
+      "The summer solstice still aligns through the heel stone, just like the original."
+    ]
+  },
+  {
+    "id": "buffalo-bill-ranch",
+    "name": "Buffalo Bill Ranch / Golden Spike Tower",
+    "kind": "landmark",
+    "lat": 41.13,
+    "lng": -100.79,
+    "note": "Cody's home + a tower over Bailey Yard, the world's largest rail yard.",
+    "url": "https://history.nebraska.gov/visit/buffalo-bill-ranch-state-historical-park/",
+    "website": "https://history.nebraska.gov/visit/buffalo-bill-ranch-state-historical-park/",
+    "phone": "+13085358035",
+    "address": "2921 Scouts Rest Ranch Rd, North Platte, NE 69101",
+    "alongRouteHint": "NE North Platte",
+    "images": [
+      {
+        "src": "/poi/buffalobillhouse-0.jpg",
+        "remote": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Buffalo_Bill%27s_house%2C_Scout%27s_Rest_Ranch%2C_North_Platte%2C_NE.jpg/640px-Buffalo_Bill%27s_house%2C_Scout%27s_Rest_Ranch%2C_North_Platte%2C_NE.jpg",
+        "alt": "The yellow-and-white Victorian ranch house at Buffalo Bill's Scout's Rest Ranch in North Platte, Nebraska."
+      },
+      {
+        "src": "/poi/goldenspike-0.jpg",
+        "alt": "The Golden Spike Tower overlooking Bailey Yard in North Platte, Nebraska."
+      }
+    ],
+    "history": "Showman William F. 'Buffalo Bill' Cody bought 4,000 acres outside North Platte in 1878 and built Scout's Rest Ranch as his off-season home between Wild West tours of America and Europe.\n\nA few miles away sits Bailey Yard — the world's largest railroad classification yard — and the Golden Spike Tower, an eight-story observation deck over its 200+ tracks. Together they make the area a deeply weird and great frontier-history stop.",
+    "funFacts": [
+      "Bailey Yard sorts more than 14,000 rail cars every single day.",
+      "Cody's barn at the ranch was custom-built to display his Wild West showmanship trophies.",
+      "The Golden Spike Tower has free coin-op binoculars on the observation deck."
+    ]
+  },
+  {
+    "id": "vedauwoo-rocks",
+    "name": "Vedauwoo Rock Formations",
+    "kind": "landmark",
+    "lat": 41.16,
+    "lng": -105.37,
+    "note": "Surreal granite hoodoos right off I-80 between Cheyenne and Laramie.",
+    "url": "https://www.fs.usda.gov/recarea/mbr/recarea/?recid=81902",
+    "website": "https://www.fs.usda.gov/recarea/mbr/recarea/?recid=81902",
+    "phone": "+13077452300",
+    "address": "Vedauwoo Rd, Buford, WY 82052",
+    "alongRouteHint": "WY Sherman Mountains",
+    "images": [
+      {
+        "src": "/poi/vedauwoo-0.jpg",
+        "remote": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Vedauwoo_Wyoming.jpg/640px-Vedauwoo_Wyoming.jpg",
+        "alt": "Stacked granite hoodoo formations at Vedauwoo, Wyoming, glowing in golden hour light."
+      },
+      {
+        "src": "/poi/vedauwoo-1.jpg",
+        "alt": "Climber's view of fractured Sherman Granite cracks at Vedauwoo."
+      },
+      {
+        "src": "/poi/vedauwoo-2.jpg",
+        "alt": "Wide prairie surrounding the Vedauwoo rock piles in Wyoming."
+      }
+    ],
+    "history": "The piles of fractured granite here are about 1.4 billion years old, slowly carved into stacks by frost-wedging at over 8,000 feet above sea level. The Arapaho name for the area is 'Bito'o'wu', meaning 'earth-born spirits'.\n\nVedauwoo is a world-class crack-climbing destination — the rough Sherman Granite chews through tape gloves and is famous for being painfully grippy.",
+    "funFacts": [
+      "It sits at the highest point on the entire transcontinental I-80 — 8,640 feet at the nearby Lincoln Monument.",
+      "Climbers half-jokingly call it 'America's roughest rock' for how much skin it takes off your hands.",
+      "The Lincoln Monument exit a few miles east has a giant bronze head of Abraham Lincoln staring down at the highway."
+    ]
+  },
+  {
+    "id": "little-america-wy",
+    "name": "Little America (WY)",
+    "kind": "fun",
+    "lat": 41.55,
+    "lng": -109.86,
+    "note": "Throwback travel oasis — 75¢ ice cream cones and penguin signage forever.",
+    "url": "https://www.littleamerica.com/wyoming/",
+    "website": "https://www.littleamerica.com/wyoming/",
+    "phone": "+13078722400",
+    "address": "I-80 Exit 68, Little America, WY 82929",
+    "alongRouteHint": "WY exit 68",
+    "images": [
+      {
+        "src": "/poi/LittleAmerica-0.jpeg",
+        "remote": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Little_America_Wyoming.jpg/640px-Little_America_Wyoming.jpg",
+        "alt": "The famous penguin signage and travel plaza at Little America, Wyoming."
+      },
+      {
+        "src": "/poi/LittleAmerica-2.jpg",
+        "alt": "Wide view of the Little America hotel and gas plaza along I-80."
+      }
+    ],
+    "history": "Founder S. M. Covey was a teen sheepherder caught in a 1890s Wyoming blizzard who promised himself he'd build a refuge for travelers if he made it home alive. Decades later, in 1934, he opened a 12-room motel and gas station out here in the high desert. He named it Little America after the Antarctic base — hence the penguin mascot everywhere.\n\nIt is now a 140-room hotel, restaurant, gas station, and gift shop oasis with the iconic 55-foot penguin sign visible for miles in every direction.",
+    "funFacts": [
+      "The original-recipe ice cream cone is still 75 cents at the soft-serve counter.",
+      "55 gas pumps make it one of the largest single fueling stops in the country.",
+      "Highway billboards count down 'Little America: 600 miles… 400 miles…' for hundreds of miles in either direction."
+    ]
+  },
+  {
+    "id": "bonneville-salt-flats",
+    "name": "Bonneville Salt Flats overlook",
+    "kind": "landmark",
+    "lat": 40.74,
+    "lng": -113.86,
+    "note": "Surreal white salt expanse — rest area exit just past Wendover.",
+    "url": "https://www.blm.gov/visit/bonneville-salt-flats",
+    "website": "https://www.blm.gov/visit/bonneville-salt-flats",
+    "phone": "+18019774300",
+    "address": "I-80 Exit 4, Wendover, UT 84083",
+    "alongRouteHint": "UT west of SLC (off-route)",
+    "images": [
+      {
+        "src": "/poi/BonnevilleSaltFlats-0.jpg",
+        "remote": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Bonneville_Salt_Flats.jpg/640px-Bonneville_Salt_Flats.jpg",
+        "alt": "Endless white salt crust stretching to distant mountains under a deep blue sky at the Bonneville Salt Flats, Utah."
+      },
+      {
+        "src": "/poi/BonnevilleSaltFlats-1.jpg",
+        "alt": "Cracked salt-pan textures on the Bonneville Salt Flats."
+      },
+      {
+        "src": "/poi/saltlake-0.jpg",
+        "alt": "Mirror-like wet-season reflections on the Bonneville Salt Flats."
+      },
+      {
+        "src": "/poi/saltlake-1.jpg",
+        "alt": "Distant mountains beyond the Great Salt Lake's bright salt expanse."
+      },
+      {
+        "src": "/poi/slc-0.jpg",
+        "alt": "Wide-open salt landscape on the western edge of the Great Salt Lake basin."
+      }
+    ],
+    "history": "These 30,000 acres of densely-packed salt are the dried-up bed of ancient Lake Bonneville, which covered most of western Utah at the end of the last ice age.\n\nThey've been a land-speed-record racetrack since 1914 — the world's first 300, 400, 500, and 600 mph runs were all set here, and the Bonneville Speed Week every August still draws hot-rodders from around the world.",
+    "funFacts": [
+      "The salt crust is over five feet thick in places and so flat it actually reveals the curvature of the Earth.",
+      "It rains briefly every winter and the entire flat turns into a giant mirror — a magnet for photographers.",
+      "Filmmakers have used it as Mars, the moon, and post-apocalyptic Earth in dozens of movies."
+    ]
+  },
+  {
+    "id": "antelope-island-sp",
+    "name": "Antelope Island State Park",
+    "kind": "landmark",
+    "lat": 40.99,
+    "lng": -112.21,
+    "note": "Causeway out into the Great Salt Lake with bison herds and big sky.",
+    "url": "https://stateparks.utah.gov/parks/antelope-island/",
+    "website": "https://stateparks.utah.gov/parks/antelope-island/",
+    "phone": "+18017732941",
+    "address": "4528 W 1700 S, Syracuse, UT 84075",
+    "alongRouteHint": "UT north of SLC",
+    "images": [
+      {
+        "src": "/poi/AntelopeIsland-0.jpg",
+        "remote": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Antelope_Island_Bison.jpg/640px-Antelope_Island_Bison.jpg",
+        "alt": "American bison grazing on the open grassland of Antelope Island State Park in Utah."
+      },
+      {
+        "src": "/poi/AntelopeIsland-1.png",
+        "alt": "Causeway leading out across the Great Salt Lake to Antelope Island."
+      },
+      {
+        "src": "/poi/AntelopeIsland-2.jpeg",
+        "alt": "Rolling grassland and shoreline on Antelope Island State Park."
+      },
+      {
+        "src": "/poi/AntelopeIsland-3.jpg",
+        "alt": "Wide Great Salt Lake panorama from Antelope Island."
+      }
+    ],
+    "history": "Antelope Island is the largest of ten islands in the Great Salt Lake, named by Kit Carson and John C. Frémont in 1845 after the pronghorn they hunted on its slopes.\n\nA herd of about 700 American bison has lived here since 1893 and is among the oldest publicly-owned bison herds in the country.",
+    "funFacts": [
+      "Sit-down bison roundups every fall draw thousands of spectators along the access road.",
+      "The Great Salt Lake is so dense you bob like a cork — bring rinse water, the salt itches when it dries.",
+      "The state park's 7-mile causeway is one of the cheapest 'island vacations' anywhere — currently $15 per car."
+    ]
+  },
+  {
+    "id": "temple-square-slc",
+    "name": "Temple Square (downtown SLC)",
+    "kind": "landmark",
+    "lat": 40.77,
+    "lng": -111.89,
+    "note": "Historic LDS temple grounds — free to walk, central Salt Lake City.",
+    "url": "https://www.templesquare.com/",
+    "website": "https://www.templesquare.com/",
+    "phone": "+18012401245",
+    "address": "50 N Temple, Salt Lake City, UT 84150",
+    "alongRouteHint": "SLC downtown",
+    "images": [
+      {
+        "src": "/poi/TempleSquare-0.png",
+        "remote": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Salt_Lake_Temple%2C_Utah_-_Sept_2004-2.jpg/640px-Salt_Lake_Temple%2C_Utah_-_Sept_2004-2.jpg",
+        "alt": "The granite spires of the Salt Lake Temple at the heart of Temple Square in downtown Salt Lake City."
+      },
+      {
+        "src": "/poi/templesquare-1.jpg",
+        "alt": "Gardens and reflecting pools surrounding the Salt Lake Temple."
+      },
+      {
+        "src": "/poi/templesquare-2.png",
+        "alt": "Tabernacle and Assembly Hall on the Temple Square grounds."
+      }
+    ],
+    "history": "The 10-acre square has been the religious heart of The Church of Jesus Christ of Latter-day Saints since 1847, when Brigham Young drove a stake into the ground here days after entering the valley.\n\nThe Salt Lake Temple itself took 40 years to build (1853-1893) out of granite quarried in nearby Little Cottonwood Canyon and is currently mid-renovation; the rest of the square — Tabernacle, Assembly Hall, gardens — remains free and open to the public.",
+    "funFacts": [
+      "The Salt Lake Tabernacle's domed roof is so acoustically perfect a pin dropped at the pulpit can be heard 170 feet away.",
+      "The temple's foundation is 16 feet thick — over-engineered after the original sandstone footings were torn out and replaced with granite.",
+      "Free 30-minute concerts on the world-famous Tabernacle organ happen most weekday afternoons."
+    ]
+  },
+  {
+    "id": "park-city-olympic",
+    "name": "Park City / Utah Olympic Park",
+    "kind": "fun",
+    "lat": 40.71,
+    "lng": -111.56,
+    "note": "Bobsled rides, ski-jump museum, mountain town — 35 min east of SLC.",
+    "url": "https://utaholympiclegacy.org/location/utah-olympic-park/",
+    "website": "https://utaholympiclegacy.org/location/utah-olympic-park/",
+    "phone": "+14356584200",
+    "address": "3419 Olympic Pkwy, Park City, UT 84098",
+    "alongRouteHint": "UT mountain detour",
+    "images": [
+      {
+        "src": "/poi/ParkCity-0.jpg",
+        "remote": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Utah_Olympic_Park_Ski_Jumps.jpg/640px-Utah_Olympic_Park_Ski_Jumps.jpg",
+        "alt": "Ski jump towers at the Utah Olympic Park outside Park City, Utah."
+      },
+      {
+        "src": "/poi/ParkCity-2.jpg",
+        "alt": "Bobsled and luge track switchbacks at the Utah Olympic Park."
+      }
+    ],
+    "history": "Built for the 2002 Salt Lake Winter Olympics, the park preserves the bobsled, luge, skeleton, and ski-jump venues. After the Games it became a year-round Olympic training site and tourist attraction.\n\nThe park hosts the only public bobsled experience in the country — riders hit 70+ mph through a real Olympic-grade track with a professional pilot driving.",
+    "funFacts": [
+      "A summer bobsled experience uses wheels instead of runners but still pulls 4-5 Gs in the corners.",
+      "The Joe Quinney Winter Sports Center museum has the actual gold medals (and uniforms) of dozens of US Olympians.",
+      "Park City's Main Street is just 5 miles down the canyon, full of restored mining-era saloons turned ski lodges."
+    ]
+  }
+]

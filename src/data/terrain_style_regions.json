@@ -1,0 +1,85 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": { "regionId": "pacific_northwest" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[-126, 51], [-114, 51], [-114, 41], [-126, 41], [-126, 51]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "regionId": "california_southwest" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[-124, 41], [-114, 41], [-114, 32], [-124, 32], [-124, 41]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "regionId": "rocky_mountains" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[-114, 49], [-100, 49], [-100, 37], [-114, 37], [-114, 49]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "regionId": "desert_southwest" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[-116, 37], [-108, 37], [-108, 31], [-116, 31], [-116, 37]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "regionId": "northern_plains" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[-104, 49], [-90, 49], [-90, 44], [-104, 44], [-104, 49]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "regionId": "great_plains" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[-104, 44], [-92, 44], [-92, 35], [-104, 35], [-104, 44]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "regionId": "texas_gulf" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[-106, 35], [-93, 35], [-93, 26], [-106, 26], [-106, 35]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "regionId": "midwest_lakes" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[-92, 49], [-82, 49], [-82, 38], [-92, 38], [-92, 49]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "regionId": "southeast" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[-92, 38], [-75, 38], [-75, 24.5], [-92, 24.5], [-92, 38]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "regionId": "northeast" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[-82, 47], [-66.5, 47], [-66.5, 38], [-82, 38], [-82, 47]]]
+      }
+    }
+  ]
+}

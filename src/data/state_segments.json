@@ -1,0 +1,9 @@
+[
+  { "id": "MI", "name": "Michigan", "startProgress": 0, "endProgress": 0.14, "tz": "America/Detroit" },
+  { "id": "IN", "name": "Indiana", "startProgress": 0.14, "endProgress": 0.2, "tz": "America/Indiana/Indianapolis" },
+  { "id": "IL", "name": "Illinois", "startProgress": 0.2, "endProgress": 0.28, "tz": "America/Chicago" },
+  { "id": "IA", "name": "Iowa", "startProgress": 0.28, "endProgress": 0.4, "tz": "America/Chicago" },
+  { "id": "NE", "name": "Nebraska", "startProgress": 0.4, "endProgress": 0.55, "tz": "America/Chicago" },
+  { "id": "WY", "name": "Wyoming", "startProgress": 0.55, "endProgress": 0.78, "tz": "America/Denver" },
+  { "id": "UT", "name": "Utah", "startProgress": 0.78, "endProgress": 1, "tz": "America/Denver" }
+]

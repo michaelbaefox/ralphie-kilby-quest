@@ -1,0 +1,67 @@
+[
+  {
+    "id": "great_lakes",
+    "label": "Great Lakes green",
+    "minProgress": 0,
+    "maxProgress": 0.22,
+    "skyTop": "#87ceeb",
+    "skyBottom": "#b8e0ff",
+    "farColor": "#3d6b4f",
+    "midColor": "#5a8f5e",
+    "nearColor": "#7cb87a",
+    "roadColor": "#4a4a4a",
+    "accent": "#c8ffc4"
+  },
+  {
+    "id": "prairie",
+    "label": "Iowa prairie gold",
+    "minProgress": 0.22,
+    "maxProgress": 0.42,
+    "skyTop": "#6ec1ff",
+    "skyBottom": "#ffe9a8",
+    "farColor": "#c9a227",
+    "midColor": "#e3c76b",
+    "nearColor": "#f5e6a9",
+    "roadColor": "#4a4a4a",
+    "accent": "#fff3c2"
+  },
+  {
+    "id": "nebraska_sky",
+    "label": "Big Nebraska sky",
+    "minProgress": 0.42,
+    "maxProgress": 0.56,
+    "skyTop": "#4a90d9",
+    "skyBottom": "#f0d8a8",
+    "farColor": "#a67c52",
+    "midColor": "#c49a6c",
+    "nearColor": "#dcb892",
+    "roadColor": "#444",
+    "accent": "#ffd79a"
+  },
+  {
+    "id": "wyoming_high",
+    "label": "Wyoming high plains",
+    "minProgress": 0.56,
+    "maxProgress": 0.78,
+    "skyTop": "#355a8c",
+    "skyBottom": "#c5d9f0",
+    "farColor": "#6b7c8c",
+    "midColor": "#8fa0b0",
+    "nearColor": "#b8c9d9",
+    "roadColor": "#3a3a3a",
+    "accent": "#e8f4ff"
+  },
+  {
+    "id": "utah_desert",
+    "label": "Utah desert rose",
+    "minProgress": 0.78,
+    "maxProgress": 1,
+    "skyTop": "#5aa9e6",
+    "skyBottom": "#f4c29a",
+    "farColor": "#c97b63",
+    "midColor": "#d9a088",
+    "nearColor": "#e8c4b0",
+    "roadColor": "#3d3d3d",
+    "accent": "#ffe0c8"
+  }
+]

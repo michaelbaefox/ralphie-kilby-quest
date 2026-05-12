@@ -1,0 +1,9 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+# SPA fallback for direct loads (e.g. /road). Static files and sw.js are served first.
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
