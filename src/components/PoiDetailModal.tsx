@@ -13,6 +13,7 @@ import { BrutalIcon } from './BrutalIcon'
 import { POI_KIND_ICON, POI_KIND_LABEL } from '../lib/poiIcons'
 import { buildAppleMapsUrl, buildGoogleMapsUrl, buildTelHref } from '../lib/mapsLinks'
 import { getPoiHeroSlides } from '../lib/poiGallery'
+import { assetUrl } from '../lib/assetUrl'
 
 type Props = {
   poi: Poi | null
@@ -35,7 +36,9 @@ const PoiHeroSlide = ({ image, kind }: { image: PoiImage; kind: PoiKind }) => {
     )
   }
 
-  const src = stage === 'local' ? image.src : image.remote
+  // Local `image.src` is relative to public/; rewrite for the current base path.
+  // `image.remote` is an absolute external URL (e.g. Wikimedia) — pass through as-is.
+  const src = stage === 'local' ? assetUrl(image.src) : image.remote
   if (!src) {
     return (
       <div className="poiModalHeroFallback" aria-hidden>

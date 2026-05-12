@@ -18,6 +18,7 @@ import {
 } from '../lib/roadScrollParallax'
 import { useTrip } from '../context/TripContext'
 import { useWeather } from '../context/WeatherProvider'
+import { assetUrl } from '../lib/assetUrl'
 import { blendSky } from '../lib/sun'
 import { PoiDetailModal } from '../components/PoiDetailModal'
 import { SkyAndCelestials } from '../components/road/SkyAndCelestials'
@@ -26,10 +27,10 @@ import { HeadlightCone } from '../components/road/HeadlightCone'
 import { RoadStopCarousel } from '../components/road/RoadStopCarousel'
 import type { ForecastWaypoint, Poi, WeatherCondition } from '../types'
 
-/** One cycle of clouds per layer (duplicated in JSX for seamless wrap). */
-const CLOUD_BACK_IMGS = ['/cloud-pixel-a.svg', '/cloud-pixel-b.svg', '/cloud-pixel-c.svg', '/cloud-pixel-a.svg', '/cloud-pixel-b.svg'] as const
-const CLOUD_MID_IMGS = ['/cloud-pixel-b.svg', '/cloud-pixel-c.svg', '/cloud-pixel-a.svg', '/cloud-pixel-b.svg'] as const
-const CLOUD_FRONT_IMGS = ['/cloud-pixel-c.svg', '/cloud-pixel-a.svg', '/cloud-pixel-b.svg'] as const
+/** One cycle of clouds per layer (duplicated in JSX for seamless wrap). Paths relative to `public/`. */
+const CLOUD_BACK_IMGS = ['cloud-pixel-a.svg', 'cloud-pixel-b.svg', 'cloud-pixel-c.svg', 'cloud-pixel-a.svg', 'cloud-pixel-b.svg'] as const
+const CLOUD_MID_IMGS = ['cloud-pixel-b.svg', 'cloud-pixel-c.svg', 'cloud-pixel-a.svg', 'cloud-pixel-b.svg'] as const
+const CLOUD_FRONT_IMGS = ['cloud-pixel-c.svg', 'cloud-pixel-a.svg', 'cloud-pixel-b.svg'] as const
 
 export const RoadScroll = () => {
   const trip = useTrip()
@@ -159,7 +160,7 @@ export const RoadScroll = () => {
             {[0, 1].map((dup) => (
               <div key={dup} className="roadScrollCloudDup">
                 {CLOUD_BACK_IMGS.map((src, i) => (
-                  <img key={`${dup}-${i}`} src={src} alt="" className="roadScrollCloudImg" />
+                  <img key={`${dup}-${i}`} src={assetUrl(src)} alt="" className="roadScrollCloudImg" />
                 ))}
               </div>
             ))}
@@ -171,7 +172,7 @@ export const RoadScroll = () => {
             {[0, 1].map((dup) => (
               <div key={dup} className="roadScrollCloudDup">
                 {CLOUD_MID_IMGS.map((src, i) => (
-                  <img key={`${dup}-${i}`} src={src} alt="" className="roadScrollCloudImg" />
+                  <img key={`${dup}-${i}`} src={assetUrl(src)} alt="" className="roadScrollCloudImg" />
                 ))}
               </div>
             ))}
@@ -185,7 +186,7 @@ export const RoadScroll = () => {
                 {CLOUD_FRONT_IMGS.map((src, i) => (
                   <img
                     key={`${dup}-${i}`}
-                    src={src}
+                    src={assetUrl(src)}
                     alt=""
                     className="roadScrollCloudImg roadScrollCloudImgSmall"
                   />
@@ -390,7 +391,7 @@ export const RoadScroll = () => {
         >
           <img
             className="roadScrollCarSprite roadScrollPixel"
-            src={`${import.meta.env.BASE_URL}prius.svg`}
+            src={assetUrl('prius.svg')}
             alt="Your Prius on the road"
             width={112}
             height={49}

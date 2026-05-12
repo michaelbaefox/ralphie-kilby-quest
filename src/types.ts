@@ -1,7 +1,11 @@
 export type PoiKind = 'gas' | 'food' | 'rest' | 'supplies' | 'landmark' | 'fun' | 'emergency'
 
 export type PoiImage = {
-  /** Bundled local image path (e.g. "/poi/carhenge.jpg" or a placeholder SVG). Always loaded first. */
+  /**
+   * Bundled local image path relative to `public/` (e.g. "/poi/carhenge.jpg" or
+   * "poi/carhenge.jpg"). Loaded first. Pass through `assetUrl()` at render time
+   * so the path resolves under the current Vite `base` (e.g. on GitHub project Pages).
+   */
   src: string
   /** Optional remote URL (Wikimedia, etc.) tried only if bundled `src` fails to load (missing file or offline cache miss). */
   remote?: string
